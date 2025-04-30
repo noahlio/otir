@@ -1,0 +1,905 @@
+<https://noah.dev/ontologies/otir> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://noah.dev/ontologies/otir> <http://purl.org/dc/elements/1.1/creator> "Noah" .
+<https://noah.dev/ontologies/otir> <http://purl.org/dc/elements/1.1/description> "This ontology describes tourism-related information such as hotels, restaurants, events, and tourist attractions in cities." .
+<https://noah.dev/ontologies/otir> <http://purl.org/dc/elements/1.1/license> "https://opensource.org/licenses/MIT" .
+<https://noah.dev/ontologies/otir> <http://purl.org/dc/elements/1.1/rights> "MIT License" .
+<https://noah.dev/ontologies/otir> <http://purl.org/dc/elements/1.1/title> "Tourism Information Retrieval Ontology" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/elements/1.1/description
+<http://purl.org/dc/elements/1.1/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/elements/1.1/license
+<http://purl.org/dc/elements/1.1/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/elements/1.1/rights
+<http://purl.org/dc/elements/1.1/rights> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2002/07/owl#symmetricProperty
+<http://www.w3.org/2002/07/owl#symmetricProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# https://purl.org/dc/elements/1.1/description
+<https://purl.org/dc/elements/1.1/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# https://purl.org/dc/elements/1.1/license
+<https://purl.org/dc/elements/1.1/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# https://purl.org/dc/elements/1.1/rights
+<https://purl.org/dc/elements/1.1/rights> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# https://purl.org/dc/elements/1.1/title
+<https://purl.org/dc/elements/1.1/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Datatypes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2001/XMLSchema#date
+<http://www.w3.org/2001/XMLSchema#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# https://noah.dev/ontologies/otir/BestHotel
+<https://noah.dev/ontologies/otir/BestHotel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://noah.dev/ontologies/otir/BestHotel> <http://www.w3.org/2002/07/owl#inverseOf> <https://noah.dev/ontologies/otir/HasBestHotel> .
+<https://noah.dev/ontologies/otir/BestHotel> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/Hotel> .
+<https://noah.dev/ontologies/otir/BestHotel> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.org/City> .
+<https://noah.dev/ontologies/otir/BestHotel> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a hotel to the city where it has the highest rating among all hotels." .
+<https://noah.dev/ontologies/otir/BestHotel> <http://www.w3.org/2000/01/rdf-schema#label> "Best Hotel" .
+# 
+# https://noah.dev/ontologies/otir/BestTouristAttraction
+<https://noah.dev/ontologies/otir/BestTouristAttraction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://noah.dev/ontologies/otir/BestTouristAttraction> <http://www.w3.org/2002/07/owl#inverseOf> <https://noah.dev/ontologies/otir/HasBestTouristAttraction> .
+<https://noah.dev/ontologies/otir/BestTouristAttraction> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/TouristAttraction> .
+<https://noah.dev/ontologies/otir/BestTouristAttraction> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.org/City> .
+<https://noah.dev/ontologies/otir/BestTouristAttraction> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a tourist attraction to the city where it stands out with the highest rating or interest among all attractions." .
+<https://noah.dev/ontologies/otir/BestTouristAttraction> <http://www.w3.org/2000/01/rdf-schema#label> "Best Tourist Attraction" .
+# 
+# https://noah.dev/ontologies/otir/HasBestHotel
+<https://noah.dev/ontologies/otir/HasBestHotel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://noah.dev/ontologies/otir/HasBestHotel> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/City> .
+<https://noah.dev/ontologies/otir/HasBestHotel> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.org/Hotel> .
+<https://noah.dev/ontologies/otir/HasBestHotel> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a city to the hotel with the highest rating within it." .
+<https://noah.dev/ontologies/otir/HasBestHotel> <http://www.w3.org/2000/01/rdf-schema#label> "Has Best Hotel" .
+# 
+# https://noah.dev/ontologies/otir/HasBestTouristAttraction
+<https://noah.dev/ontologies/otir/HasBestTouristAttraction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://noah.dev/ontologies/otir/HasBestTouristAttraction> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/City> .
+<https://noah.dev/ontologies/otir/HasBestTouristAttraction> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.org/TouristAttraction> .
+<https://noah.dev/ontologies/otir/HasBestTouristAttraction> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a city to its best-rated or most significant tourist attraction." .
+<https://noah.dev/ontologies/otir/HasBestTouristAttraction> <http://www.w3.org/2000/01/rdf-schema#label> "Has Best Tourist Attraction" .
+# 
+# https://noah.dev/ontologies/otir/HasLocation
+<https://noah.dev/ontologies/otir/HasLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://noah.dev/ontologies/otir/HasLocation> <http://www.w3.org/2002/07/owl#inverseOf> <https://noah.dev/ontologies/otir/LocatedInCity> .
+<https://noah.dev/ontologies/otir/HasLocation> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/City> .
+<https://noah.dev/ontologies/otir/HasLocation> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.org/Place> .
+<https://noah.dev/ontologies/otir/HasLocation> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a city to the entities (TouristAttraction, Hotel, Restaurant, Event) located within it." .
+<https://noah.dev/ontologies/otir/HasLocation> <http://www.w3.org/2000/01/rdf-schema#label> "Has Location" .
+# 
+# https://noah.dev/ontologies/otir/LocatedInCity
+<https://noah.dev/ontologies/otir/LocatedInCity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://noah.dev/ontologies/otir/LocatedInCity> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/Place> .
+<https://noah.dev/ontologies/otir/LocatedInCity> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.org/City> .
+<https://noah.dev/ontologies/otir/LocatedInCity> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates any entity (TouristAttraction, Hotel, Restaurant, Event) to the city in which it is located." .
+<https://noah.dev/ontologies/otir/LocatedInCity> <http://www.w3.org/2000/01/rdf-schema#label> "Located In City" .
+# 
+# https://noah.dev/ontologies/otir/SameCity
+<https://noah.dev/ontologies/otir/SameCity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://noah.dev/ontologies/otir/SameCity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#SymmetricProperty> .
+<https://noah.dev/ontologies/otir/SameCity> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/Place> .
+<https://noah.dev/ontologies/otir/SameCity> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.org/Place> .
+<https://noah.dev/ontologies/otir/SameCity> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates two places that are located in the same city." .
+<https://noah.dev/ontologies/otir/SameCity> <http://www.w3.org/2000/01/rdf-schema#label> "Same City" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# https://noah.dev/ontologies/otir/AveragePrice
+<https://noah.dev/ontologies/otir/AveragePrice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://noah.dev/ontologies/otir/AveragePrice> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/Restaurant> .
+<https://noah.dev/ontologies/otir/AveragePrice> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://noah.dev/ontologies/otir/AveragePrice> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the average price of a meal at a restaurant." .
+<https://noah.dev/ontologies/otir/AveragePrice> <http://www.w3.org/2000/01/rdf-schema#label> "Average Price" .
+# 
+# https://noah.dev/ontologies/otir/Date
+<https://noah.dev/ontologies/otir/Date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://noah.dev/ontologies/otir/Date> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/Event> .
+<https://noah.dev/ontologies/otir/Date> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<https://noah.dev/ontologies/otir/Date> <http://www.w3.org/2000/01/rdf-schema#comment> "Specifies the date and time when an event occurs." .
+<https://noah.dev/ontologies/otir/Date> <http://www.w3.org/2000/01/rdf-schema#label> "Date" .
+# 
+# https://noah.dev/ontologies/otir/Location
+<https://noah.dev/ontologies/otir/Location> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://noah.dev/ontologies/otir/Location> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/City> .
+<https://noah.dev/ontologies/otir/Location> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://noah.dev/ontologies/otir/Location> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the location of a city." .
+<https://noah.dev/ontologies/otir/Location> <http://www.w3.org/2000/01/rdf-schema#label> "Location" .
+# 
+# https://noah.dev/ontologies/otir/Name
+<https://noah.dev/ontologies/otir/Name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://noah.dev/ontologies/otir/Name> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid1 .
+_:genid1 <http://www.w3.org/2002/07/owl#unionOf> _:genid3 .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid2 .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://schema.org/Place> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://schema.org/City> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://noah.dev/ontologies/otir/Name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://noah.dev/ontologies/otir/Name> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the name of a tourist attraction, city, event, hotel, or restaurant." .
+<https://noah.dev/ontologies/otir/Name> <http://www.w3.org/2000/01/rdf-schema#label> "Name" .
+# 
+# https://noah.dev/ontologies/otir/NightPrice
+<https://noah.dev/ontologies/otir/NightPrice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://noah.dev/ontologies/otir/NightPrice> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/Hotel> .
+<https://noah.dev/ontologies/otir/NightPrice> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://noah.dev/ontologies/otir/NightPrice> <http://www.w3.org/2000/01/rdf-schema#comment> "Specifies the price per night for a hotel room." .
+<https://noah.dev/ontologies/otir/NightPrice> <http://www.w3.org/2000/01/rdf-schema#label> "Night Price" .
+# 
+# https://noah.dev/ontologies/otir/Rating
+<https://noah.dev/ontologies/otir/Rating> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://noah.dev/ontologies/otir/Rating> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid4 .
+_:genid4 <http://www.w3.org/2002/07/owl#unionOf> _:genid7 .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid6 .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid5 .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://schema.org/TouristAttraction> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://schema.org/Restaurant> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://schema.org/Hotel> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://noah.dev/ontologies/otir/Rating> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://noah.dev/ontologies/otir/Rating> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the rating of a tourist attraction, hotel, or restaurant." .
+<https://noah.dev/ontologies/otir/Rating> <http://www.w3.org/2000/01/rdf-schema#label> "Rating" .
+# 
+# https://noah.dev/ontologies/otir/StarRating
+<https://noah.dev/ontologies/otir/StarRating> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://noah.dev/ontologies/otir/StarRating> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/Hotel> .
+<https://noah.dev/ontologies/otir/StarRating> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://noah.dev/ontologies/otir/StarRating> <http://www.w3.org/2000/01/rdf-schema#comment> "Specifies the star rating of a hotel." .
+<https://noah.dev/ontologies/otir/StarRating> <http://www.w3.org/2000/01/rdf-schema#label> "Star Rating" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2002/07/owl#Thing
+<http://www.w3.org/2002/07/owl#Thing> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid8 .
+_:genid8 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid8 <http://www.w3.org/2002/07/owl#onProperty> <https://noah.dev/ontologies/otir/Name> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+# 
+# https://noah.dev/ontologies/otir/AndalusianCuisine
+<https://noah.dev/ontologies/otir/AndalusianCuisine> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://noah.dev/ontologies/otir/AndalusianCuisine> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Restaurant> .
+<https://noah.dev/ontologies/otir/AndalusianCuisine> <http://www.w3.org/2000/01/rdf-schema#comment> "Restaurants specialized in Andalusian cuisine." .
+<https://noah.dev/ontologies/otir/AndalusianCuisine> <http://www.w3.org/2000/01/rdf-schema#label> "Andalusian Cuisine" .
+# 
+# https://noah.dev/ontologies/otir/Beach
+<https://noah.dev/ontologies/otir/Beach> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://noah.dev/ontologies/otir/Beach> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/TouristAttraction> .
+<https://noah.dev/ontologies/otir/Beach> <http://www.w3.org/2000/01/rdf-schema#comment> "Tourist attraction related to beaches and coastal areas." .
+<https://noah.dev/ontologies/otir/Beach> <http://www.w3.org/2000/01/rdf-schema#label> "Beach" .
+# 
+# https://noah.dev/ontologies/otir/BeachHotel
+<https://noah.dev/ontologies/otir/BeachHotel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://noah.dev/ontologies/otir/BeachHotel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Hotel> .
+<https://noah.dev/ontologies/otir/BeachHotel> <http://www.w3.org/2000/01/rdf-schema#comment> "Hotel located near the beach or with direct beach access." .
+<https://noah.dev/ontologies/otir/BeachHotel> <http://www.w3.org/2000/01/rdf-schema#label> "Beach Hotel" .
+# 
+# https://noah.dev/ontologies/otir/BusinessHotel
+<https://noah.dev/ontologies/otir/BusinessHotel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://noah.dev/ontologies/otir/BusinessHotel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Hotel> .
+<https://noah.dev/ontologies/otir/BusinessHotel> <http://www.w3.org/2000/01/rdf-schema#comment> "Hotel oriented towards business travelers and corporate events." .
+<https://noah.dev/ontologies/otir/BusinessHotel> <http://www.w3.org/2000/01/rdf-schema#label> "Business Hotel" .
+# 
+# https://noah.dev/ontologies/otir/Cultural
+<https://noah.dev/ontologies/otir/Cultural> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://noah.dev/ontologies/otir/Cultural> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/TouristAttraction> .
+<https://noah.dev/ontologies/otir/Cultural> <http://www.w3.org/2000/01/rdf-schema#comment> "Tourist attraction related to various cultural activities or spaces." .
+<https://noah.dev/ontologies/otir/Cultural> <http://www.w3.org/2000/01/rdf-schema#label> "Cultural" .
+# 
+# https://noah.dev/ontologies/otir/CulturalEvent
+<https://noah.dev/ontologies/otir/CulturalEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://noah.dev/ontologies/otir/CulturalEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Event> .
+<https://noah.dev/ontologies/otir/CulturalEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "Cultural events such as festivals, fairs, or performances." .
+<https://noah.dev/ontologies/otir/CulturalEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Cultural Event" .
+# 
+# https://noah.dev/ontologies/otir/GastronomicEvent
+<https://noah.dev/ontologies/otir/GastronomicEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://noah.dev/ontologies/otir/GastronomicEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Event> .
+<https://noah.dev/ontologies/otir/GastronomicEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "Events related to gastronomy or food tasting." .
+<https://noah.dev/ontologies/otir/GastronomicEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Gastronomic Event" .
+# 
+# https://noah.dev/ontologies/otir/ItalianCuisine
+<https://noah.dev/ontologies/otir/ItalianCuisine> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://noah.dev/ontologies/otir/ItalianCuisine> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Restaurant> .
+<https://noah.dev/ontologies/otir/ItalianCuisine> <http://www.w3.org/2000/01/rdf-schema#comment> "Restaurants specialized in Italian cuisine." .
+<https://noah.dev/ontologies/otir/ItalianCuisine> <http://www.w3.org/2000/01/rdf-schema#label> "Italian Cuisine" .
+# 
+# https://noah.dev/ontologies/otir/JapaneseCuisine
+<https://noah.dev/ontologies/otir/JapaneseCuisine> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://noah.dev/ontologies/otir/JapaneseCuisine> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Restaurant> .
+<https://noah.dev/ontologies/otir/JapaneseCuisine> <http://www.w3.org/2000/01/rdf-schema#comment> "Restaurants specialized in Japanese cuisine." .
+<https://noah.dev/ontologies/otir/JapaneseCuisine> <http://www.w3.org/2000/01/rdf-schema#label> "Japanese Cuisine" .
+# 
+# https://noah.dev/ontologies/otir/LuxuryHotel
+<https://noah.dev/ontologies/otir/LuxuryHotel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://noah.dev/ontologies/otir/LuxuryHotel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Hotel> .
+<https://noah.dev/ontologies/otir/LuxuryHotel> <http://www.w3.org/2000/01/rdf-schema#comment> "High-end hotel offering luxury services." .
+<https://noah.dev/ontologies/otir/LuxuryHotel> <http://www.w3.org/2000/01/rdf-schema#label> "Luxury Hotel" .
+# 
+# https://noah.dev/ontologies/otir/MediterraneanCuisine
+<https://noah.dev/ontologies/otir/MediterraneanCuisine> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://noah.dev/ontologies/otir/MediterraneanCuisine> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Restaurant> .
+<https://noah.dev/ontologies/otir/MediterraneanCuisine> <http://www.w3.org/2000/01/rdf-schema#comment> "Restaurants specialized in Mediterranean cuisine." .
+<https://noah.dev/ontologies/otir/MediterraneanCuisine> <http://www.w3.org/2000/01/rdf-schema#label> "Mediterranean Cuisine" .
+# 
+# https://noah.dev/ontologies/otir/MexicanCuisine
+<https://noah.dev/ontologies/otir/MexicanCuisine> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://noah.dev/ontologies/otir/MexicanCuisine> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Restaurant> .
+<https://noah.dev/ontologies/otir/MexicanCuisine> <http://www.w3.org/2000/01/rdf-schema#comment> "Restaurants specialized in Mexican cuisine." .
+<https://noah.dev/ontologies/otir/MexicanCuisine> <http://www.w3.org/2000/01/rdf-schema#label> "Mexican Cuisine" .
+# 
+# https://noah.dev/ontologies/otir/Monument
+<https://noah.dev/ontologies/otir/Monument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://noah.dev/ontologies/otir/Monument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/TouristAttraction> .
+<https://noah.dev/ontologies/otir/Monument> <http://www.w3.org/2000/01/rdf-schema#comment> "Historical or symbolic structure of cultural interest." .
+<https://noah.dev/ontologies/otir/Monument> <http://www.w3.org/2000/01/rdf-schema#label> "Monument" .
+# 
+# https://noah.dev/ontologies/otir/Museum
+<https://noah.dev/ontologies/otir/Museum> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://noah.dev/ontologies/otir/Museum> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/TouristAttraction> .
+<https://noah.dev/ontologies/otir/Museum> <http://www.w3.org/2000/01/rdf-schema#comment> "Tourist attraction focused on cultural or artistic exhibitions." .
+<https://noah.dev/ontologies/otir/Museum> <http://www.w3.org/2000/01/rdf-schema#label> "Museum" .
+# 
+# https://noah.dev/ontologies/otir/MusicEvent
+<https://noah.dev/ontologies/otir/MusicEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://noah.dev/ontologies/otir/MusicEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Event> .
+<https://noah.dev/ontologies/otir/MusicEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "Events centered around musical performances or concerts." .
+<https://noah.dev/ontologies/otir/MusicEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Music Event" .
+# 
+# https://noah.dev/ontologies/otir/Park
+<https://noah.dev/ontologies/otir/Park> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://noah.dev/ontologies/otir/Park> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/TouristAttraction> .
+<https://noah.dev/ontologies/otir/Park> <http://www.w3.org/2000/01/rdf-schema#comment> "Green spaces intended for leisure and relaxation of visitors." .
+<https://noah.dev/ontologies/otir/Park> <http://www.w3.org/2000/01/rdf-schema#label> "Park" .
+# 
+# https://noah.dev/ontologies/otir/RuralHotel
+<https://noah.dev/ontologies/otir/RuralHotel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://noah.dev/ontologies/otir/RuralHotel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Hotel> .
+<https://noah.dev/ontologies/otir/RuralHotel> <http://www.w3.org/2000/01/rdf-schema#comment> "Hotel located in natural or rural environments." .
+<https://noah.dev/ontologies/otir/RuralHotel> <http://www.w3.org/2000/01/rdf-schema#label> "Rural Hotel" .
+# 
+# https://noah.dev/ontologies/otir/SportEvent
+<https://noah.dev/ontologies/otir/SportEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://noah.dev/ontologies/otir/SportEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Event> .
+<https://noah.dev/ontologies/otir/SportEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "Events related to sports activities." .
+<https://noah.dev/ontologies/otir/SportEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Sport Event" .
+# 
+# https://noah.dev/ontologies/otir/TechnologicalEvent
+<https://noah.dev/ontologies/otir/TechnologicalEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://noah.dev/ontologies/otir/TechnologicalEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Event> .
+<https://noah.dev/ontologies/otir/TechnologicalEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "Events related to technology, innovation, or science." .
+<https://noah.dev/ontologies/otir/TechnologicalEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Technological Event" .
+# 
+# https://noah.dev/ontologies/otir/TouristicHotel
+<https://noah.dev/ontologies/otir/TouristicHotel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://noah.dev/ontologies/otir/TouristicHotel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Hotel> .
+<https://noah.dev/ontologies/otir/TouristicHotel> <http://www.w3.org/2000/01/rdf-schema#comment> "Hotel mainly aimed at leisure travelers." .
+<https://noah.dev/ontologies/otir/TouristicHotel> <http://www.w3.org/2000/01/rdf-schema#label> "Touristic Hotel" .
+# 
+# https://schema.org/City
+<https://schema.org/City> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.org/City> <http://www.w3.org/2000/01/rdf-schema#comment> "Municipalities or geographic locations within the ontology." .
+<https://schema.org/City> <http://www.w3.org/2000/01/rdf-schema#label> "City" .
+# 
+# https://schema.org/Event
+<https://schema.org/Event> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.org/Event> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Place> .
+<https://schema.org/Event> <http://www.w3.org/2000/01/rdf-schema#comment> "Activities or events that take place in a city and are intended for the public." .
+<https://schema.org/Event> <http://www.w3.org/2000/01/rdf-schema#label> "Event" .
+# 
+# https://schema.org/Hotel
+<https://schema.org/Hotel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.org/Hotel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Place> .
+<https://schema.org/Hotel> <http://www.w3.org/2000/01/rdf-schema#comment> "Establishments offering accommodation to travelers and tourists." .
+<https://schema.org/Hotel> <http://www.w3.org/2000/01/rdf-schema#label> "Hotel" .
+# 
+# https://schema.org/Place
+<https://schema.org/Place> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.org/Place> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid9 .
+_:genid9 <http://www.w3.org/2002/07/owl#onClass> <https://schema.org/City> .
+_:genid9 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid9 <http://www.w3.org/2002/07/owl#onProperty> <https://noah.dev/ontologies/otir/LocatedInCity> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://schema.org/Place> <http://www.w3.org/2000/01/rdf-schema#comment> "A general class representing any physical location, such as a hotel, restaurant, attraction, or event venue, which is associated with a specific city." .
+<https://schema.org/Place> <http://www.w3.org/2000/01/rdf-schema#label> "Place" .
+# 
+# https://schema.org/Restaurant
+<https://schema.org/Restaurant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.org/Restaurant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Place> .
+<https://schema.org/Restaurant> <http://www.w3.org/2000/01/rdf-schema#comment> "Establishments offering food and beverage services." .
+<https://schema.org/Restaurant> <http://www.w3.org/2000/01/rdf-schema#label> "Restaurant" .
+# 
+# https://schema.org/TouristAttraction
+<https://schema.org/TouristAttraction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.org/TouristAttraction> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Place> .
+<https://schema.org/TouristAttraction> <http://www.w3.org/2000/01/rdf-schema#comment> "Tourist places of interest that can be visited by users." .
+<https://schema.org/TouristAttraction> <http://www.w3.org/2000/01/rdf-schema#label> "Tourist Attraction" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# https://noah.dev/ontologies/otir/Barcelona
+<https://noah.dev/ontologies/otir/Barcelona> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/Barcelona> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/City> .
+<https://noah.dev/ontologies/otir/Barcelona> <https://noah.dev/ontologies/otir/Location> "41.3874,2.1686" .
+<https://noah.dev/ontologies/otir/Barcelona> <https://noah.dev/ontologies/otir/Name> "Barcelona" .
+<https://noah.dev/ontologies/otir/Barcelona> <http://www.w3.org/2000/01/rdf-schema#comment> "City of Barcelona, known for its architecture, culture, and Mediterranean coast." .
+<https://noah.dev/ontologies/otir/Barcelona> <http://www.w3.org/2000/01/rdf-schema#label> "Barcelona" .
+# 
+# https://noah.dev/ontologies/otir/Bilbao
+<https://noah.dev/ontologies/otir/Bilbao> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/Bilbao> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/City> .
+<https://noah.dev/ontologies/otir/Bilbao> <https://noah.dev/ontologies/otir/HasLocation> <https://noah.dev/ontologies/otir/CongresBilbao> .
+<https://noah.dev/ontologies/otir/Bilbao> <https://noah.dev/ontologies/otir/HasLocation> <https://noah.dev/ontologies/otir/HotelRoyalBilbao> .
+<https://noah.dev/ontologies/otir/Bilbao> <https://noah.dev/ontologies/otir/Location> "43.2630,-2.9350" .
+<https://noah.dev/ontologies/otir/Bilbao> <https://noah.dev/ontologies/otir/Name> "Bilbao" .
+<https://noah.dev/ontologies/otir/Bilbao> <http://www.w3.org/2000/01/rdf-schema#comment> "City of Bilbao, famous for the Guggenheim Museum and Basque culture." .
+<https://noah.dev/ontologies/otir/Bilbao> <http://www.w3.org/2000/01/rdf-schema#label> "Bilbao" .
+# 
+# https://noah.dev/ontologies/otir/Cadis
+<https://noah.dev/ontologies/otir/Cadis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/Cadis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/City> .
+<https://noah.dev/ontologies/otir/Cadis> <https://noah.dev/ontologies/otir/HasLocation> <https://noah.dev/ontologies/otir/CarnavalCadis> .
+<https://noah.dev/ontologies/otir/Cadis> <https://noah.dev/ontologies/otir/HasLocation> <https://noah.dev/ontologies/otir/CastellCadis> .
+<https://noah.dev/ontologies/otir/Cadis> <https://noah.dev/ontologies/otir/HasLocation> <https://noah.dev/ontologies/otir/CongresCadis> .
+<https://noah.dev/ontologies/otir/Cadis> <https://noah.dev/ontologies/otir/Location> "36.5297,-6.2920" .
+<https://noah.dev/ontologies/otir/Cadis> <https://noah.dev/ontologies/otir/Name> "Cadis" .
+<https://noah.dev/ontologies/otir/Cadis> <http://www.w3.org/2000/01/rdf-schema#comment> "City of Cadis, a historic port city in southwestern Spain." .
+<https://noah.dev/ontologies/otir/Cadis> <http://www.w3.org/2000/01/rdf-schema#label> "Cadis" .
+# 
+# https://noah.dev/ontologies/otir/CarnavalCadis
+<https://noah.dev/ontologies/otir/CarnavalCadis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/CarnavalCadis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://noah.dev/ontologies/otir/SportEvent> .
+<https://noah.dev/ontologies/otir/CarnavalCadis> <https://noah.dev/ontologies/otir/Date> "2024-04-19"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://noah.dev/ontologies/otir/CarnavalCadis> <https://noah.dev/ontologies/otir/Name> "Carnaval Cadis" .
+<https://noah.dev/ontologies/otir/CarnavalCadis> <http://www.w3.org/2000/01/rdf-schema#comment> "Event in Cadis, a traditional and colorful carnival celebration." .
+<https://noah.dev/ontologies/otir/CarnavalCadis> <http://www.w3.org/2000/01/rdf-schema#label> "Carnaval Cadis" .
+# 
+# https://noah.dev/ontologies/otir/CarnavalSevilla
+<https://noah.dev/ontologies/otir/CarnavalSevilla> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/CarnavalSevilla> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://noah.dev/ontologies/otir/MusicEvent> .
+<https://noah.dev/ontologies/otir/CarnavalSevilla> <https://noah.dev/ontologies/otir/Date> "2024-05-08"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://noah.dev/ontologies/otir/CarnavalSevilla> <https://noah.dev/ontologies/otir/Name> "Carnaval Sevilla" .
+<https://noah.dev/ontologies/otir/CarnavalSevilla> <http://www.w3.org/2000/01/rdf-schema#comment> "Event in Sevilla, a vibrant carnival featuring music and parades." .
+<https://noah.dev/ontologies/otir/CarnavalSevilla> <http://www.w3.org/2000/01/rdf-schema#label> "Carnaval Sevilla" .
+# 
+# https://noah.dev/ontologies/otir/CastellCadis
+<https://noah.dev/ontologies/otir/CastellCadis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/CastellCadis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://noah.dev/ontologies/otir/Beach> .
+<https://noah.dev/ontologies/otir/CastellCadis> <https://noah.dev/ontologies/otir/Name> "Castell Cadis" .
+<https://noah.dev/ontologies/otir/CastellCadis> <https://noah.dev/ontologies/otir/Rating> "3.5"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://noah.dev/ontologies/otir/CastellCadis> <http://www.w3.org/2000/01/rdf-schema#comment> "Tourist attraction in Cadis, a historical castle near the coast." .
+<https://noah.dev/ontologies/otir/CastellCadis> <http://www.w3.org/2000/01/rdf-schema#label> "Castell Cadis" .
+# 
+# https://noah.dev/ontologies/otir/CastellSaragossa
+<https://noah.dev/ontologies/otir/CastellSaragossa> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/CastellSaragossa> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://noah.dev/ontologies/otir/Museum> .
+<https://noah.dev/ontologies/otir/CastellSaragossa> <https://noah.dev/ontologies/otir/Name> "Castell Saragossa" .
+<https://noah.dev/ontologies/otir/CastellSaragossa> <https://noah.dev/ontologies/otir/Rating> "5.0"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://noah.dev/ontologies/otir/CastellSaragossa> <http://www.w3.org/2000/01/rdf-schema#comment> "Tourist attraction in Saragossa, a historical castle open to visitors." .
+<https://noah.dev/ontologies/otir/CastellSaragossa> <http://www.w3.org/2000/01/rdf-schema#label> "Castell Saragossa" .
+# 
+# https://noah.dev/ontologies/otir/CastellSevilla
+<https://noah.dev/ontologies/otir/CastellSevilla> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/CastellSevilla> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://noah.dev/ontologies/otir/Monument> .
+<https://noah.dev/ontologies/otir/CastellSevilla> <https://noah.dev/ontologies/otir/Name> "Castell Sevilla" .
+<https://noah.dev/ontologies/otir/CastellSevilla> <https://noah.dev/ontologies/otir/Rating> "4.6"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://noah.dev/ontologies/otir/CastellSevilla> <http://www.w3.org/2000/01/rdf-schema#comment> "Tourist attraction in Sevilla, a well-preserved historical castle." .
+<https://noah.dev/ontologies/otir/CastellSevilla> <http://www.w3.org/2000/01/rdf-schema#label> "Castell Sevilla" .
+# 
+# https://noah.dev/ontologies/otir/CatedralSevilla
+<https://noah.dev/ontologies/otir/CatedralSevilla> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/CatedralSevilla> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://noah.dev/ontologies/otir/Museum> .
+<https://noah.dev/ontologies/otir/CatedralSevilla> <https://noah.dev/ontologies/otir/Name> "Catedral Sevilla" .
+<https://noah.dev/ontologies/otir/CatedralSevilla> <https://noah.dev/ontologies/otir/Rating> "4.9"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://noah.dev/ontologies/otir/CatedralSevilla> <http://www.w3.org/2000/01/rdf-schema#comment> "Tourist attraction in Sevilla, a cultural and historical palace." .
+<https://noah.dev/ontologies/otir/CatedralSevilla> <http://www.w3.org/2000/01/rdf-schema#label> "Catedral Sevilla" .
+# 
+# https://noah.dev/ontologies/otir/CongresBilbao
+<https://noah.dev/ontologies/otir/CongresBilbao> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/CongresBilbao> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://noah.dev/ontologies/otir/CulturalEvent> .
+<https://noah.dev/ontologies/otir/CongresBilbao> <https://noah.dev/ontologies/otir/Date> "2024-12-01"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://noah.dev/ontologies/otir/CongresBilbao> <https://noah.dev/ontologies/otir/Name> "Congrés Bilbao" .
+<https://noah.dev/ontologies/otir/CongresBilbao> <http://www.w3.org/2000/01/rdf-schema#comment> "Event in Bilbao, a conference with a cultural theme." .
+<https://noah.dev/ontologies/otir/CongresBilbao> <http://www.w3.org/2000/01/rdf-schema#label> "Congres Bilbao" .
+# 
+# https://noah.dev/ontologies/otir/CongresCadis
+<https://noah.dev/ontologies/otir/CongresCadis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/CongresCadis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://noah.dev/ontologies/otir/SportEvent> .
+<https://noah.dev/ontologies/otir/CongresCadis> <https://noah.dev/ontologies/otir/Date> "2024-06-02"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://noah.dev/ontologies/otir/CongresCadis> <https://noah.dev/ontologies/otir/Name> "Congrés Cadis" .
+<https://noah.dev/ontologies/otir/CongresCadis> <http://www.w3.org/2000/01/rdf-schema#comment> "Event in Cadis, a congress related to sports activities." .
+<https://noah.dev/ontologies/otir/CongresCadis> <http://www.w3.org/2000/01/rdf-schema#label> "Congres Cadis" .
+# 
+# https://noah.dev/ontologies/otir/FiraToledo
+<https://noah.dev/ontologies/otir/FiraToledo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/FiraToledo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://noah.dev/ontologies/otir/SportEvent> .
+<https://noah.dev/ontologies/otir/FiraToledo> <https://noah.dev/ontologies/otir/Date> "2024-08-26"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://noah.dev/ontologies/otir/FiraToledo> <https://noah.dev/ontologies/otir/Name> "Fira Toledo" .
+<https://noah.dev/ontologies/otir/FiraToledo> <http://www.w3.org/2000/01/rdf-schema#comment> "Event in Toledo, a fair related to local traditions and sports." .
+<https://noah.dev/ontologies/otir/FiraToledo> <http://www.w3.org/2000/01/rdf-schema#label> "Fira Toledo" .
+# 
+# https://noah.dev/ontologies/otir/HotelDelMarSevilla
+<https://noah.dev/ontologies/otir/HotelDelMarSevilla> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/HotelDelMarSevilla> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://noah.dev/ontologies/otir/TouristicHotel> .
+<https://noah.dev/ontologies/otir/HotelDelMarSevilla> <https://noah.dev/ontologies/otir/Name> "Hotel Del Mar Sevilla" .
+<https://noah.dev/ontologies/otir/HotelDelMarSevilla> <https://noah.dev/ontologies/otir/NightPrice> "95"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://noah.dev/ontologies/otir/HotelDelMarSevilla> <https://noah.dev/ontologies/otir/Rating> "4.4"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://noah.dev/ontologies/otir/HotelDelMarSevilla> <https://noah.dev/ontologies/otir/StarRating> "5"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://noah.dev/ontologies/otir/HotelDelMarSevilla> <http://www.w3.org/2000/01/rdf-schema#comment> "A luxury hotel located in the heart of Saragossa, offering premium accommodation and services for a high-end experience." .
+<https://noah.dev/ontologies/otir/HotelDelMarSevilla> <http://www.w3.org/2000/01/rdf-schema#label> "Hotel Del Mar Sevilla" .
+# 
+# https://noah.dev/ontologies/otir/HotelRoyalBilbao
+<https://noah.dev/ontologies/otir/HotelRoyalBilbao> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/HotelRoyalBilbao> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://noah.dev/ontologies/otir/TouristicHotel> .
+<https://noah.dev/ontologies/otir/HotelRoyalBilbao> <https://noah.dev/ontologies/otir/Name> "Hotel Royal Bilbao" .
+<https://noah.dev/ontologies/otir/HotelRoyalBilbao> <https://noah.dev/ontologies/otir/NightPrice> "232"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://noah.dev/ontologies/otir/HotelRoyalBilbao> <https://noah.dev/ontologies/otir/Rating> "3.6"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://noah.dev/ontologies/otir/HotelRoyalBilbao> <https://noah.dev/ontologies/otir/StarRating> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://noah.dev/ontologies/otir/HotelRoyalBilbao> <http://www.w3.org/2000/01/rdf-schema#comment> "Hotel in Bilbao, ideal for tourists and business travelers." .
+<https://noah.dev/ontologies/otir/HotelRoyalBilbao> <http://www.w3.org/2000/01/rdf-schema#label> "Hotel Royal Bilbao" .
+# 
+# https://noah.dev/ontologies/otir/HotelRoyalMalaga
+<https://noah.dev/ontologies/otir/HotelRoyalMalaga> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/HotelRoyalMalaga> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://noah.dev/ontologies/otir/TouristicHotel> .
+<https://noah.dev/ontologies/otir/HotelRoyalMalaga> <https://noah.dev/ontologies/otir/Name> "Hotel Royal Málaga" .
+<https://noah.dev/ontologies/otir/HotelRoyalMalaga> <https://noah.dev/ontologies/otir/NightPrice> "175"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://noah.dev/ontologies/otir/HotelRoyalMalaga> <https://noah.dev/ontologies/otir/Rating> "4.6"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://noah.dev/ontologies/otir/HotelRoyalMalaga> <https://noah.dev/ontologies/otir/StarRating> "5"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://noah.dev/ontologies/otir/HotelRoyalMalaga> <http://www.w3.org/2000/01/rdf-schema#comment> "Hotel in Málaga, a five-star accommodation near the coast." .
+<https://noah.dev/ontologies/otir/HotelRoyalMalaga> <http://www.w3.org/2000/01/rdf-schema#label> "Hotel Royal Málaga" .
+# 
+# https://noah.dev/ontologies/otir/HotelRoyalPamplona
+<https://noah.dev/ontologies/otir/HotelRoyalPamplona> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/HotelRoyalPamplona> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://noah.dev/ontologies/otir/LuxuryHotel> .
+<https://noah.dev/ontologies/otir/HotelRoyalPamplona> <https://noah.dev/ontologies/otir/Name> "Hotel Royal Pamplona" .
+<https://noah.dev/ontologies/otir/HotelRoyalPamplona> <https://noah.dev/ontologies/otir/NightPrice> "56"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://noah.dev/ontologies/otir/HotelRoyalPamplona> <https://noah.dev/ontologies/otir/Rating> "3.9"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://noah.dev/ontologies/otir/HotelRoyalPamplona> <https://noah.dev/ontologies/otir/StarRating> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://noah.dev/ontologies/otir/HotelRoyalPamplona> <http://www.w3.org/2000/01/rdf-schema#comment> "Hotel in Pamplona, a comfortable option for visitors to the city." .
+<https://noah.dev/ontologies/otir/HotelRoyalPamplona> <http://www.w3.org/2000/01/rdf-schema#label> "Hotel Royal Pamplona" .
+# 
+# https://noah.dev/ontologies/otir/HotelVistaSevilla
+<https://noah.dev/ontologies/otir/HotelVistaSevilla> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/HotelVistaSevilla> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://noah.dev/ontologies/otir/BeachHotel> .
+<https://noah.dev/ontologies/otir/HotelVistaSevilla> <https://noah.dev/ontologies/otir/Name> "Hotel Vista Sevilla" .
+<https://noah.dev/ontologies/otir/HotelVistaSevilla> <https://noah.dev/ontologies/otir/NightPrice> "278"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://noah.dev/ontologies/otir/HotelVistaSevilla> <https://noah.dev/ontologies/otir/Rating> "4.7"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://noah.dev/ontologies/otir/HotelVistaSevilla> <https://noah.dev/ontologies/otir/StarRating> "4"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://noah.dev/ontologies/otir/HotelVistaSevilla> <http://www.w3.org/2000/01/rdf-schema#comment> "Hotel in Sevilla, a four-star hotel located close to the beach." .
+<https://noah.dev/ontologies/otir/HotelVistaSevilla> <http://www.w3.org/2000/01/rdf-schema#label> "Hotel Vista Sevilla" .
+# 
+# https://noah.dev/ontologies/otir/Madrid
+<https://noah.dev/ontologies/otir/Madrid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/Madrid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/City> .
+<https://noah.dev/ontologies/otir/Madrid> <https://noah.dev/ontologies/otir/HasLocation> <https://noah.dev/ontologies/otir/MuseuMadrid> .
+<https://noah.dev/ontologies/otir/Madrid> <https://noah.dev/ontologies/otir/HasLocation> <https://noah.dev/ontologies/otir/RestaurantGourmetMadrid> .
+<https://noah.dev/ontologies/otir/Madrid> <https://noah.dev/ontologies/otir/Location> "40.4168,-3.7038" .
+<https://noah.dev/ontologies/otir/Madrid> <https://noah.dev/ontologies/otir/Name> "Madrid" .
+<https://noah.dev/ontologies/otir/Madrid> <http://www.w3.org/2000/01/rdf-schema#comment> "City of Madrid, the capital of Spain, known for its museums and lively culture." .
+<https://noah.dev/ontologies/otir/Madrid> <http://www.w3.org/2000/01/rdf-schema#label> "Madrid" .
+# 
+# https://noah.dev/ontologies/otir/MuseuMadrid
+<https://noah.dev/ontologies/otir/MuseuMadrid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/MuseuMadrid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://noah.dev/ontologies/otir/Museum> .
+<https://noah.dev/ontologies/otir/MuseuMadrid> <https://noah.dev/ontologies/otir/Name> "Museu Madrid" .
+<https://noah.dev/ontologies/otir/MuseuMadrid> <https://noah.dev/ontologies/otir/Rating> "3.7"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://noah.dev/ontologies/otir/MuseuMadrid> <http://www.w3.org/2000/01/rdf-schema#comment> "Tourist attraction in Madrid, a museum showcasing local and international art." .
+<https://noah.dev/ontologies/otir/MuseuMadrid> <http://www.w3.org/2000/01/rdf-schema#label> "Museu Madrid" .
+# 
+# https://noah.dev/ontologies/otir/Málaga
+<https://noah.dev/ontologies/otir/Málaga> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/Málaga> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/City> .
+<https://noah.dev/ontologies/otir/Málaga> <https://noah.dev/ontologies/otir/HasLocation> <https://noah.dev/ontologies/otir/HotelRoyalMalaga> .
+<https://noah.dev/ontologies/otir/Málaga> <https://noah.dev/ontologies/otir/HasLocation> <https://noah.dev/ontologies/otir/RestaurantDeliciaMalaga> .
+<https://noah.dev/ontologies/otir/Málaga> <https://noah.dev/ontologies/otir/Location> "36.7213,-4.4210" .
+<https://noah.dev/ontologies/otir/Málaga> <https://noah.dev/ontologies/otir/Name> "Màlaga" .
+<https://noah.dev/ontologies/otir/Málaga> <http://www.w3.org/2000/01/rdf-schema#comment> "City of Málaga, a coastal city known for its beaches and historical sites." .
+<https://noah.dev/ontologies/otir/Málaga> <http://www.w3.org/2000/01/rdf-schema#label> "Málaga" .
+# 
+# https://noah.dev/ontologies/otir/Pamplona
+<https://noah.dev/ontologies/otir/Pamplona> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/Pamplona> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/City> .
+<https://noah.dev/ontologies/otir/Pamplona> <https://noah.dev/ontologies/otir/HasLocation> <https://noah.dev/ontologies/otir/HotelRoyalPamplona> .
+<https://noah.dev/ontologies/otir/Pamplona> <https://noah.dev/ontologies/otir/HasLocation> <https://noah.dev/ontologies/otir/RestaurantDeliciaPamplona> .
+<https://noah.dev/ontologies/otir/Pamplona> <https://noah.dev/ontologies/otir/Location> "42.8169,-1.6444" .
+<https://noah.dev/ontologies/otir/Pamplona> <https://noah.dev/ontologies/otir/Name> "Pamplona" .
+<https://noah.dev/ontologies/otir/Pamplona> <http://www.w3.org/2000/01/rdf-schema#comment> "City of Pamplona, internationally known for the San Fermín festival." .
+<https://noah.dev/ontologies/otir/Pamplona> <http://www.w3.org/2000/01/rdf-schema#label> "Pamplona" .
+# 
+# https://noah.dev/ontologies/otir/RestaurantDeliciaMalaga
+<https://noah.dev/ontologies/otir/RestaurantDeliciaMalaga> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/RestaurantDeliciaMalaga> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://noah.dev/ontologies/otir/JapaneseCuisine> .
+<https://noah.dev/ontologies/otir/RestaurantDeliciaMalaga> <https://noah.dev/ontologies/otir/AveragePrice> "38"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://noah.dev/ontologies/otir/RestaurantDeliciaMalaga> <https://noah.dev/ontologies/otir/Name> "Restaurant Delicia Malaga" .
+<https://noah.dev/ontologies/otir/RestaurantDeliciaMalaga> <http://www.w3.org/2000/01/rdf-schema#comment> "Restaurant in Málaga, offering high-quality Japanese cuisine." .
+<https://noah.dev/ontologies/otir/RestaurantDeliciaMalaga> <http://www.w3.org/2000/01/rdf-schema#label> "Restaurant Delicia Malaga" .
+# 
+# https://noah.dev/ontologies/otir/RestaurantDeliciaPamplona
+<https://noah.dev/ontologies/otir/RestaurantDeliciaPamplona> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/RestaurantDeliciaPamplona> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://noah.dev/ontologies/otir/MexicanCuisine> .
+<https://noah.dev/ontologies/otir/RestaurantDeliciaPamplona> <https://noah.dev/ontologies/otir/AveragePrice> "36"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://noah.dev/ontologies/otir/RestaurantDeliciaPamplona> <https://noah.dev/ontologies/otir/Name> "Restaurant Delicia Pamplona" .
+<https://noah.dev/ontologies/otir/RestaurantDeliciaPamplona> <http://www.w3.org/2000/01/rdf-schema#comment> "Restaurant in Pamplona, serving Mexican cuisine with excellent reviews." .
+<https://noah.dev/ontologies/otir/RestaurantDeliciaPamplona> <http://www.w3.org/2000/01/rdf-schema#label> "Restaurant Delicia Pamplona" .
+# 
+# https://noah.dev/ontologies/otir/RestaurantFusioValencia
+<https://noah.dev/ontologies/otir/RestaurantFusioValencia> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/RestaurantFusioValencia> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://noah.dev/ontologies/otir/AndalusianCuisine> .
+<https://noah.dev/ontologies/otir/RestaurantFusioValencia> <https://noah.dev/ontologies/otir/AveragePrice> "13"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://noah.dev/ontologies/otir/RestaurantFusioValencia> <https://noah.dev/ontologies/otir/Name> "Restaurant Fusio Valencia" .
+<https://noah.dev/ontologies/otir/RestaurantFusioValencia> <http://www.w3.org/2000/01/rdf-schema#comment> "Restaurant in València, offering a fusion of Andalusian flavors." .
+<https://noah.dev/ontologies/otir/RestaurantFusioValencia> <http://www.w3.org/2000/01/rdf-schema#label> "Restaurant Fusio Valencia" .
+# 
+# https://noah.dev/ontologies/otir/RestaurantGourmetMadrid
+<https://noah.dev/ontologies/otir/RestaurantGourmetMadrid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/RestaurantGourmetMadrid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://noah.dev/ontologies/otir/JapaneseCuisine> .
+<https://noah.dev/ontologies/otir/RestaurantGourmetMadrid> <https://noah.dev/ontologies/otir/AveragePrice> "30"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://noah.dev/ontologies/otir/RestaurantGourmetMadrid> <https://noah.dev/ontologies/otir/Name> "Restaurant Gourmet Madrid" .
+<https://noah.dev/ontologies/otir/RestaurantGourmetMadrid> <http://www.w3.org/2000/01/rdf-schema#comment> "Restaurant in Madrid, specialized in high-end Japanese cuisine." .
+<https://noah.dev/ontologies/otir/RestaurantGourmetMadrid> <http://www.w3.org/2000/01/rdf-schema#label> "Restaurant Gourmet Madrid" .
+# 
+# https://noah.dev/ontologies/otir/RestaurantTradicioToledo
+<https://noah.dev/ontologies/otir/RestaurantTradicioToledo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/RestaurantTradicioToledo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://noah.dev/ontologies/otir/MexicanCuisine> .
+<https://noah.dev/ontologies/otir/RestaurantTradicioToledo> <https://noah.dev/ontologies/otir/AveragePrice> "46"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://noah.dev/ontologies/otir/RestaurantTradicioToledo> <https://noah.dev/ontologies/otir/Name> "Restaurant Tradicio Toledo" .
+<https://noah.dev/ontologies/otir/RestaurantTradicioToledo> <http://www.w3.org/2000/01/rdf-schema#comment> "Restaurant in Toledo, serving traditional Mexican cuisine." .
+<https://noah.dev/ontologies/otir/RestaurantTradicioToledo> <http://www.w3.org/2000/01/rdf-schema#label> "Restaurant Tradicio Toledo" .
+# 
+# https://noah.dev/ontologies/otir/SanSebastian
+<https://noah.dev/ontologies/otir/SanSebastian> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/SanSebastian> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/City> .
+<https://noah.dev/ontologies/otir/SanSebastian> <https://noah.dev/ontologies/otir/Location> "43.3183,-1.9812" .
+<https://noah.dev/ontologies/otir/SanSebastian> <https://noah.dev/ontologies/otir/Name> "Sant Sebastià" .
+<https://noah.dev/ontologies/otir/SanSebastian> <http://www.w3.org/2000/01/rdf-schema#comment> "City of Sant Sebastià, known for its beaches and culinary excellence." .
+<https://noah.dev/ontologies/otir/SanSebastian> <http://www.w3.org/2000/01/rdf-schema#label> "San Sebastian" .
+# 
+# https://noah.dev/ontologies/otir/Saragossa
+<https://noah.dev/ontologies/otir/Saragossa> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/Saragossa> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/City> .
+<https://noah.dev/ontologies/otir/Saragossa> <https://noah.dev/ontologies/otir/HasLocation> <https://noah.dev/ontologies/otir/CastellSaragossa> .
+<https://noah.dev/ontologies/otir/Saragossa> <https://noah.dev/ontologies/otir/Location> "41.6488,-0.8891" .
+<https://noah.dev/ontologies/otir/Saragossa> <https://noah.dev/ontologies/otir/Name> "Saragossa" .
+<https://noah.dev/ontologies/otir/Saragossa> <http://www.w3.org/2000/01/rdf-schema#comment> "City of Saragossa, known for its historical heritage and cultural events." .
+<https://noah.dev/ontologies/otir/Saragossa> <http://www.w3.org/2000/01/rdf-schema#label> "Saragossa" .
+# 
+# https://noah.dev/ontologies/otir/Sevilla
+<https://noah.dev/ontologies/otir/Sevilla> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/Sevilla> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/City> .
+<https://noah.dev/ontologies/otir/Sevilla> <https://noah.dev/ontologies/otir/HasLocation> <https://noah.dev/ontologies/otir/CarnavalSevilla> .
+<https://noah.dev/ontologies/otir/Sevilla> <https://noah.dev/ontologies/otir/HasLocation> <https://noah.dev/ontologies/otir/CastellSevilla> .
+<https://noah.dev/ontologies/otir/Sevilla> <https://noah.dev/ontologies/otir/HasLocation> <https://noah.dev/ontologies/otir/CatedralSevilla> .
+<https://noah.dev/ontologies/otir/Sevilla> <https://noah.dev/ontologies/otir/HasLocation> <https://noah.dev/ontologies/otir/HotelDelMarSevilla> .
+<https://noah.dev/ontologies/otir/Sevilla> <https://noah.dev/ontologies/otir/HasLocation> <https://noah.dev/ontologies/otir/HotelVistaSevilla> .
+<https://noah.dev/ontologies/otir/Sevilla> <https://noah.dev/ontologies/otir/Location> "37.3886,-5.9823" .
+<https://noah.dev/ontologies/otir/Sevilla> <https://noah.dev/ontologies/otir/Name> "Sevilla" .
+<https://noah.dev/ontologies/otir/Sevilla> <http://www.w3.org/2000/01/rdf-schema#comment> "City of Sevilla, famous for its flamenco culture and historic architecture." .
+<https://noah.dev/ontologies/otir/Sevilla> <http://www.w3.org/2000/01/rdf-schema#label> "Sevilla" .
+# 
+# https://noah.dev/ontologies/otir/Toledo
+<https://noah.dev/ontologies/otir/Toledo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/Toledo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/City> .
+<https://noah.dev/ontologies/otir/Toledo> <https://noah.dev/ontologies/otir/HasLocation> <https://noah.dev/ontologies/otir/FiraToledo> .
+<https://noah.dev/ontologies/otir/Toledo> <https://noah.dev/ontologies/otir/HasLocation> <https://noah.dev/ontologies/otir/RestaurantTradicioToledo> .
+<https://noah.dev/ontologies/otir/Toledo> <https://noah.dev/ontologies/otir/Location> "39.8628,-4.0273" .
+<https://noah.dev/ontologies/otir/Toledo> <https://noah.dev/ontologies/otir/Name> "Toledo" .
+<https://noah.dev/ontologies/otir/Toledo> <http://www.w3.org/2000/01/rdf-schema#comment> "City of Toledo, known for its medieval history and multicultural heritage." .
+<https://noah.dev/ontologies/otir/Toledo> <http://www.w3.org/2000/01/rdf-schema#label> "Toledo" .
+# 
+# https://noah.dev/ontologies/otir/Valencia
+<https://noah.dev/ontologies/otir/Valencia> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://noah.dev/ontologies/otir/Valencia> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/City> .
+<https://noah.dev/ontologies/otir/Valencia> <https://noah.dev/ontologies/otir/HasLocation> <https://noah.dev/ontologies/otir/RestaurantFusioValencia> .
+<https://noah.dev/ontologies/otir/Valencia> <https://noah.dev/ontologies/otir/Location> "39.4699,-0.3763" .
+<https://noah.dev/ontologies/otir/Valencia> <https://noah.dev/ontologies/otir/Name> "València" .
+<https://noah.dev/ontologies/otir/Valencia> <http://www.w3.org/2000/01/rdf-schema#comment> "City of Valencia, located on the east coast of Spain, known for its arts and science complex." .
+<https://noah.dev/ontologies/otir/Valencia> <http://www.w3.org/2000/01/rdf-schema#label> "Valencia" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    General axioms
+# #
+# #################################################################
+# 
+# 
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid10 <http://www.w3.org/2002/07/owl#members> _:genid15 .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid14 .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid13 .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid12 .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid11 .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://schema.org/TouristAttraction> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://schema.org/Restaurant> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://schema.org/Hotel> .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://schema.org/Event> .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://schema.org/City> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Rules
+# #
+# #################################################################
+# 
+# 
+<https://noah.dev/ontologies/otir/H1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<https://noah.dev/ontologies/otir/C> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<https://noah.dev/ontologies/otir/R1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<https://noah.dev/ontologies/otir/H2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<https://noah.dev/ontologies/otir/R2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<https://noah.dev/ontologies/otir/P1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<https://noah.dev/ontologies/otir/P2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<https://noah.dev/ontologies/otir/N1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<https://noah.dev/ontologies/otir/N2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<https://noah.dev/ontologies/otir/Ta1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<https://noah.dev/ontologies/otir/Ta2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+_:genid16 <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+_:genid16 <http://www.w3.org/2000/01/rdf-schema#comment> "Rule that assigns the best hotel of the city. If the hotel is the only one in the city, it doesn't count." .
+_:genid16 <http://www.w3.org/2000/01/rdf-schema#label> "BestHotelRule" .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Imp> .
+_:genid16 <http://www.w3.org/2003/11/swrl#body> _:genid31 .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid29 .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid27 .
+_:genid27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid25 .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid23 .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid21 .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid17 .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid18 .
+_:genid18 <http://www.w3.org/2003/11/swrl#arguments> _:genid20 .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid19 .
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://noah.dev/ontologies/otir/R2> .
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://noah.dev/ontologies/otir/R1> .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid18 <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> .
+<http://www.w3.org/2003/11/swrlb#greaterThan> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Builtin> .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#BuiltinAtom> .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid22 .
+_:genid22 <http://www.w3.org/2003/11/swrl#argument2> <https://noah.dev/ontologies/otir/R2> .
+_:genid22 <http://www.w3.org/2003/11/swrl#argument1> <https://noah.dev/ontologies/otir/H2> .
+_:genid22 <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://noah.dev/ontologies/otir/Rating> .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid24 .
+_:genid24 <http://www.w3.org/2003/11/swrl#argument2> <https://noah.dev/ontologies/otir/C> .
+_:genid24 <http://www.w3.org/2003/11/swrl#argument1> <https://noah.dev/ontologies/otir/H2> .
+_:genid24 <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://noah.dev/ontologies/otir/LocatedInCity> .
+_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid26 .
+_:genid26 <http://www.w3.org/2003/11/swrl#argument1> <https://noah.dev/ontologies/otir/H2> .
+_:genid26 <http://www.w3.org/2003/11/swrl#classPredicate> <https://schema.org/Hotel> .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid28 .
+_:genid28 <http://www.w3.org/2003/11/swrl#argument2> <https://noah.dev/ontologies/otir/R1> .
+_:genid28 <http://www.w3.org/2003/11/swrl#argument1> <https://noah.dev/ontologies/otir/H1> .
+_:genid28 <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://noah.dev/ontologies/otir/Rating> .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+_:genid27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid30 .
+_:genid30 <http://www.w3.org/2003/11/swrl#argument2> <https://noah.dev/ontologies/otir/C> .
+_:genid30 <http://www.w3.org/2003/11/swrl#argument1> <https://noah.dev/ontologies/otir/H1> .
+_:genid30 <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://noah.dev/ontologies/otir/LocatedInCity> .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid32 .
+_:genid32 <http://www.w3.org/2003/11/swrl#argument1> <https://noah.dev/ontologies/otir/H1> .
+_:genid32 <http://www.w3.org/2003/11/swrl#classPredicate> <https://schema.org/Hotel> .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid16 <http://www.w3.org/2003/11/swrl#head> _:genid33 .
+_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid34 .
+_:genid34 <http://www.w3.org/2003/11/swrl#argument2> <https://noah.dev/ontologies/otir/C> .
+_:genid34 <http://www.w3.org/2003/11/swrl#argument1> <https://noah.dev/ontologies/otir/H1> .
+_:genid34 <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://noah.dev/ontologies/otir/BestHotel> .
+_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid35 <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+_:genid35 <http://www.w3.org/2000/01/rdf-schema#comment> "Rule that indicates the rest of the places in the same city as the consulted place." .
+_:genid35 <http://www.w3.org/2000/01/rdf-schema#label> "SameCityRule" .
+_:genid35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Imp> .
+_:genid35 <http://www.w3.org/2003/11/swrl#body> _:genid50 .
+_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid48 .
+_:genid48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid46 .
+_:genid46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid44 .
+_:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid40 .
+_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid38 .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid36 .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid37 .
+_:genid37 <http://www.w3.org/2003/11/swrl#argument2> <https://noah.dev/ontologies/otir/C> .
+_:genid37 <http://www.w3.org/2003/11/swrl#argument1> <https://noah.dev/ontologies/otir/P2> .
+_:genid37 <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://noah.dev/ontologies/otir/LocatedInCity> .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid39 .
+_:genid39 <http://www.w3.org/2003/11/swrl#argument2> <https://noah.dev/ontologies/otir/C> .
+_:genid39 <http://www.w3.org/2003/11/swrl#argument1> <https://noah.dev/ontologies/otir/P1> .
+_:genid39 <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://noah.dev/ontologies/otir/LocatedInCity> .
+_:genid39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid41 .
+_:genid41 <http://www.w3.org/2003/11/swrl#arguments> _:genid43 .
+_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid42 .
+_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://noah.dev/ontologies/otir/N2> .
+_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://noah.dev/ontologies/otir/N1> .
+_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid41 <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#notEqual> .
+<http://www.w3.org/2003/11/swrlb#notEqual> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Builtin> .
+_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#BuiltinAtom> .
+_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid45 .
+_:genid45 <http://www.w3.org/2003/11/swrl#argument2> <https://noah.dev/ontologies/otir/N2> .
+_:genid45 <http://www.w3.org/2003/11/swrl#argument1> <https://noah.dev/ontologies/otir/P2> .
+_:genid45 <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://noah.dev/ontologies/otir/Name> .
+_:genid45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+_:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid47 .
+_:genid47 <http://www.w3.org/2003/11/swrl#argument2> <https://noah.dev/ontologies/otir/N1> .
+_:genid47 <http://www.w3.org/2003/11/swrl#argument1> <https://noah.dev/ontologies/otir/P1> .
+_:genid47 <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://noah.dev/ontologies/otir/Name> .
+_:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+_:genid46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid49 .
+_:genid49 <http://www.w3.org/2003/11/swrl#argument1> <https://noah.dev/ontologies/otir/P2> .
+_:genid49 <http://www.w3.org/2003/11/swrl#classPredicate> <https://schema.org/Place> .
+_:genid49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid51 .
+_:genid51 <http://www.w3.org/2003/11/swrl#argument1> <https://noah.dev/ontologies/otir/P1> .
+_:genid51 <http://www.w3.org/2003/11/swrl#classPredicate> <https://schema.org/Place> .
+_:genid51 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid35 <http://www.w3.org/2003/11/swrl#head> _:genid52 .
+_:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid53 .
+_:genid53 <http://www.w3.org/2003/11/swrl#argument2> <https://noah.dev/ontologies/otir/P2> .
+_:genid53 <http://www.w3.org/2003/11/swrl#argument1> <https://noah.dev/ontologies/otir/P1> .
+_:genid53 <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://noah.dev/ontologies/otir/SameCity> .
+_:genid53 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid54 <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+_:genid54 <http://www.w3.org/2000/01/rdf-schema#comment> "Rule that assigns the best tourist attraction of the city. If the attraction is the only one in city, it doesn't count." .
+_:genid54 <http://www.w3.org/2000/01/rdf-schema#label> "BestTouristAttractionRule" .
+_:genid54 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Imp> .
+_:genid54 <http://www.w3.org/2003/11/swrl#body> _:genid69 .
+_:genid69 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid67 .
+_:genid67 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid65 .
+_:genid65 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid63 .
+_:genid63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid61 .
+_:genid61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid59 .
+_:genid59 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid55 .
+_:genid55 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid55 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid56 .
+_:genid56 <http://www.w3.org/2003/11/swrl#arguments> _:genid58 .
+_:genid58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid57 .
+_:genid57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://noah.dev/ontologies/otir/R2> .
+_:genid57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://noah.dev/ontologies/otir/R1> .
+_:genid58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid56 <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> .
+_:genid56 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#BuiltinAtom> .
+_:genid55 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid59 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid60 .
+_:genid60 <http://www.w3.org/2003/11/swrl#argument2> <https://noah.dev/ontologies/otir/R2> .
+_:genid60 <http://www.w3.org/2003/11/swrl#argument1> <https://noah.dev/ontologies/otir/Ta2> .
+_:genid60 <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://noah.dev/ontologies/otir/Rating> .
+_:genid60 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+_:genid59 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid62 .
+_:genid62 <http://www.w3.org/2003/11/swrl#argument2> <https://noah.dev/ontologies/otir/C> .
+_:genid62 <http://www.w3.org/2003/11/swrl#argument1> <https://noah.dev/ontologies/otir/Ta2> .
+_:genid62 <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://noah.dev/ontologies/otir/LocatedInCity> .
+_:genid62 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:genid61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid64 .
+_:genid64 <http://www.w3.org/2003/11/swrl#argument1> <https://noah.dev/ontologies/otir/Ta2> .
+_:genid64 <http://www.w3.org/2003/11/swrl#classPredicate> <https://schema.org/TouristAttraction> .
+_:genid64 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid65 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid66 .
+_:genid66 <http://www.w3.org/2003/11/swrl#argument2> <https://noah.dev/ontologies/otir/R1> .
+_:genid66 <http://www.w3.org/2003/11/swrl#argument1> <https://noah.dev/ontologies/otir/Ta1> .
+_:genid66 <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://noah.dev/ontologies/otir/Rating> .
+_:genid66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+_:genid65 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid67 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid68 .
+_:genid68 <http://www.w3.org/2003/11/swrl#argument2> <https://noah.dev/ontologies/otir/C> .
+_:genid68 <http://www.w3.org/2003/11/swrl#argument1> <https://noah.dev/ontologies/otir/Ta1> .
+_:genid68 <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://noah.dev/ontologies/otir/LocatedInCity> .
+_:genid68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:genid67 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid69 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid70 .
+_:genid70 <http://www.w3.org/2003/11/swrl#argument1> <https://noah.dev/ontologies/otir/Ta1> .
+_:genid70 <http://www.w3.org/2003/11/swrl#classPredicate> <https://schema.org/TouristAttraction> .
+_:genid70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid69 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid54 <http://www.w3.org/2003/11/swrl#head> _:genid71 .
+_:genid71 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid71 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid72 .
+_:genid72 <http://www.w3.org/2003/11/swrl#argument2> <https://noah.dev/ontologies/otir/C> .
+_:genid72 <http://www.w3.org/2003/11/swrl#argument1> <https://noah.dev/ontologies/otir/Ta1> .
+_:genid72 <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://noah.dev/ontologies/otir/BestTouristAttraction> .
+_:genid72 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:genid71 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
