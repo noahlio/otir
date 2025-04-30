@@ -1,0 +1,947 @@
+@prefix : <https://noah.dev/ontologies/otir/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
+@prefix schema: <https://schema.org/> .
+@base <https://noah.dev/ontologies/otir/> .
+
+<https://noah.dev/ontologies/otir> rdf:type owl:Ontology ;
+                                    dc:creator "Noah" ;
+                                    dc:description "This ontology describes tourism-related information such as hotels, restaurants, events, and tourist attractions in cities." ;
+                                    dc:license "https://opensource.org/licenses/MIT" ;
+                                    dc:rights "MIT License" ;
+                                    dc:title "Tourism Information Retrieval Ontology" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/license
+dc:license rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/rights
+dc:rights rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2002/07/owl#symmetricProperty
+owl:symmetricProperty rdf:type owl:AnnotationProperty .
+
+
+###  https://purl.org/dc/elements/1.1/description
+<https://purl.org/dc/elements/1.1/description> rdf:type owl:AnnotationProperty .
+
+
+###  https://purl.org/dc/elements/1.1/license
+<https://purl.org/dc/elements/1.1/license> rdf:type owl:AnnotationProperty .
+
+
+###  https://purl.org/dc/elements/1.1/rights
+<https://purl.org/dc/elements/1.1/rights> rdf:type owl:AnnotationProperty .
+
+
+###  https://purl.org/dc/elements/1.1/title
+<https://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://noah.dev/ontologies/otir/BestHotel
+:BestHotel rdf:type owl:ObjectProperty ;
+           owl:inverseOf :HasBestHotel ;
+           rdfs:domain schema:Hotel ;
+           rdfs:range schema:City ;
+           rdfs:comment "Relates a hotel to the city where it has the highest rating among all hotels." ;
+           rdfs:label "Best Hotel" .
+
+
+###  https://noah.dev/ontologies/otir/BestTouristAttraction
+:BestTouristAttraction rdf:type owl:ObjectProperty ;
+                       owl:inverseOf :HasBestTouristAttraction ;
+                       rdfs:domain schema:TouristAttraction ;
+                       rdfs:range schema:City ;
+                       rdfs:comment "Relates a tourist attraction to the city where it stands out with the highest rating or interest among all attractions." ;
+                       rdfs:label "Best Tourist Attraction" .
+
+
+###  https://noah.dev/ontologies/otir/HasBestHotel
+:HasBestHotel rdf:type owl:ObjectProperty ;
+              rdfs:domain schema:City ;
+              rdfs:range schema:Hotel ;
+              rdfs:comment "Relates a city to the hotel with the highest rating within it." ;
+              rdfs:label "Has Best Hotel" .
+
+
+###  https://noah.dev/ontologies/otir/HasBestTouristAttraction
+:HasBestTouristAttraction rdf:type owl:ObjectProperty ;
+                          rdfs:domain schema:City ;
+                          rdfs:range schema:TouristAttraction ;
+                          rdfs:comment "Relates a city to its best-rated or most significant tourist attraction." ;
+                          rdfs:label "Has Best Tourist Attraction" .
+
+
+###  https://noah.dev/ontologies/otir/HasLocation
+:HasLocation rdf:type owl:ObjectProperty ;
+             owl:inverseOf :LocatedInCity ;
+             rdfs:domain schema:City ;
+             rdfs:range schema:Place ;
+             rdfs:comment "Relates a city to the entities (TouristAttraction, Hotel, Restaurant, Event) located within it." ;
+             rdfs:label "Has Location" .
+
+
+###  https://noah.dev/ontologies/otir/LocatedInCity
+:LocatedInCity rdf:type owl:ObjectProperty ;
+               rdfs:domain schema:Place ;
+               rdfs:range schema:City ;
+               rdfs:comment "Relates any entity (TouristAttraction, Hotel, Restaurant, Event) to the city in which it is located." ;
+               rdfs:label "Located In City" .
+
+
+###  https://noah.dev/ontologies/otir/SameCity
+:SameCity rdf:type owl:ObjectProperty ,
+                   owl:SymmetricProperty ;
+          rdfs:domain schema:Place ;
+          rdfs:range schema:Place ;
+          rdfs:comment "Relates two places that are located in the same city." ;
+          rdfs:label "Same City" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://noah.dev/ontologies/otir/AveragePrice
+:AveragePrice rdf:type owl:DatatypeProperty ;
+              rdfs:domain schema:Restaurant ;
+              rdfs:range xsd:integer ;
+              rdfs:comment "Represents the average price of a meal at a restaurant." ;
+              rdfs:label "Average Price" .
+
+
+###  https://noah.dev/ontologies/otir/Date
+:Date rdf:type owl:DatatypeProperty ;
+      rdfs:domain schema:Event ;
+      rdfs:range xsd:date ;
+      rdfs:comment "Specifies the date and time when an event occurs." ;
+      rdfs:label "Date" .
+
+
+###  https://noah.dev/ontologies/otir/Location
+:Location rdf:type owl:DatatypeProperty ;
+          rdfs:domain schema:City ;
+          rdfs:range xsd:string ;
+          rdfs:comment "Represents the location of a city." ;
+          rdfs:label "Location" .
+
+
+###  https://noah.dev/ontologies/otir/Name
+:Name rdf:type owl:DatatypeProperty ;
+      rdfs:domain [ rdf:type owl:Class ;
+                    owl:unionOf ( schema:City
+                                  schema:Place
+                                )
+                  ] ;
+      rdfs:range xsd:string ;
+      rdfs:comment "Represents the name of a tourist attraction, city, event, hotel, or restaurant." ;
+      rdfs:label "Name" .
+
+
+###  https://noah.dev/ontologies/otir/NightPrice
+:NightPrice rdf:type owl:DatatypeProperty ;
+            rdfs:domain schema:Hotel ;
+            rdfs:range xsd:integer ;
+            rdfs:comment "Specifies the price per night for a hotel room." ;
+            rdfs:label "Night Price" .
+
+
+###  https://noah.dev/ontologies/otir/Rating
+:Rating rdf:type owl:DatatypeProperty ;
+        rdfs:domain [ rdf:type owl:Class ;
+                      owl:unionOf ( schema:Hotel
+                                    schema:Restaurant
+                                    schema:TouristAttraction
+                                  )
+                    ] ;
+        rdfs:range xsd:decimal ;
+        rdfs:comment "Represents the rating of a tourist attraction, hotel, or restaurant." ;
+        rdfs:label "Rating" .
+
+
+###  https://noah.dev/ontologies/otir/StarRating
+:StarRating rdf:type owl:DatatypeProperty ;
+            rdfs:domain schema:Hotel ;
+            rdfs:range xsd:integer ;
+            rdfs:comment "Specifies the star rating of a hotel." ;
+            rdfs:label "Star Rating" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.w3.org/2002/07/owl#Thing
+owl:Thing rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :Name ;
+                            owl:minCardinality "1"^^xsd:nonNegativeInteger
+                          ] .
+
+
+###  https://noah.dev/ontologies/otir/AndalusianCuisine
+:AndalusianCuisine rdf:type owl:Class ;
+                   rdfs:subClassOf schema:Restaurant ;
+                   rdfs:comment "Restaurants specialized in Andalusian cuisine." ;
+                   rdfs:label "Andalusian Cuisine" .
+
+
+###  https://noah.dev/ontologies/otir/Beach
+:Beach rdf:type owl:Class ;
+       rdfs:subClassOf schema:TouristAttraction ;
+       rdfs:comment "Tourist attraction related to beaches and coastal areas." ;
+       rdfs:label "Beach" .
+
+
+###  https://noah.dev/ontologies/otir/BeachHotel
+:BeachHotel rdf:type owl:Class ;
+            rdfs:subClassOf schema:Hotel ;
+            rdfs:comment "Hotel located near the beach or with direct beach access." ;
+            rdfs:label "Beach Hotel" .
+
+
+###  https://noah.dev/ontologies/otir/BusinessHotel
+:BusinessHotel rdf:type owl:Class ;
+               rdfs:subClassOf schema:Hotel ;
+               rdfs:comment "Hotel oriented towards business travelers and corporate events." ;
+               rdfs:label "Business Hotel" .
+
+
+###  https://noah.dev/ontologies/otir/Cultural
+:Cultural rdf:type owl:Class ;
+          rdfs:subClassOf schema:TouristAttraction ;
+          rdfs:comment "Tourist attraction related to various cultural activities or spaces." ;
+          rdfs:label "Cultural" .
+
+
+###  https://noah.dev/ontologies/otir/CulturalEvent
+:CulturalEvent rdf:type owl:Class ;
+               rdfs:subClassOf schema:Event ;
+               rdfs:comment "Cultural events such as festivals, fairs, or performances." ;
+               rdfs:label "Cultural Event" .
+
+
+###  https://noah.dev/ontologies/otir/GastronomicEvent
+:GastronomicEvent rdf:type owl:Class ;
+                  rdfs:subClassOf schema:Event ;
+                  rdfs:comment "Events related to gastronomy or food tasting." ;
+                  rdfs:label "Gastronomic Event" .
+
+
+###  https://noah.dev/ontologies/otir/ItalianCuisine
+:ItalianCuisine rdf:type owl:Class ;
+                rdfs:subClassOf schema:Restaurant ;
+                rdfs:comment "Restaurants specialized in Italian cuisine." ;
+                rdfs:label "Italian Cuisine" .
+
+
+###  https://noah.dev/ontologies/otir/JapaneseCuisine
+:JapaneseCuisine rdf:type owl:Class ;
+                 rdfs:subClassOf schema:Restaurant ;
+                 rdfs:comment "Restaurants specialized in Japanese cuisine." ;
+                 rdfs:label "Japanese Cuisine" .
+
+
+###  https://noah.dev/ontologies/otir/LuxuryHotel
+:LuxuryHotel rdf:type owl:Class ;
+             rdfs:subClassOf schema:Hotel ;
+             rdfs:comment "High-end hotel offering luxury services." ;
+             rdfs:label "Luxury Hotel" .
+
+
+###  https://noah.dev/ontologies/otir/MediterraneanCuisine
+:MediterraneanCuisine rdf:type owl:Class ;
+                      rdfs:subClassOf schema:Restaurant ;
+                      rdfs:comment "Restaurants specialized in Mediterranean cuisine." ;
+                      rdfs:label "Mediterranean Cuisine" .
+
+
+###  https://noah.dev/ontologies/otir/MexicanCuisine
+:MexicanCuisine rdf:type owl:Class ;
+                rdfs:subClassOf schema:Restaurant ;
+                rdfs:comment "Restaurants specialized in Mexican cuisine." ;
+                rdfs:label "Mexican Cuisine" .
+
+
+###  https://noah.dev/ontologies/otir/Monument
+:Monument rdf:type owl:Class ;
+          rdfs:subClassOf schema:TouristAttraction ;
+          rdfs:comment "Historical or symbolic structure of cultural interest." ;
+          rdfs:label "Monument" .
+
+
+###  https://noah.dev/ontologies/otir/Museum
+:Museum rdf:type owl:Class ;
+        rdfs:subClassOf schema:TouristAttraction ;
+        rdfs:comment "Tourist attraction focused on cultural or artistic exhibitions." ;
+        rdfs:label "Museum" .
+
+
+###  https://noah.dev/ontologies/otir/MusicEvent
+:MusicEvent rdf:type owl:Class ;
+            rdfs:subClassOf schema:Event ;
+            rdfs:comment "Events centered around musical performances or concerts." ;
+            rdfs:label "Music Event" .
+
+
+###  https://noah.dev/ontologies/otir/Park
+:Park rdf:type owl:Class ;
+      rdfs:subClassOf schema:TouristAttraction ;
+      rdfs:comment "Green spaces intended for leisure and relaxation of visitors." ;
+      rdfs:label "Park" .
+
+
+###  https://noah.dev/ontologies/otir/RuralHotel
+:RuralHotel rdf:type owl:Class ;
+            rdfs:subClassOf schema:Hotel ;
+            rdfs:comment "Hotel located in natural or rural environments." ;
+            rdfs:label "Rural Hotel" .
+
+
+###  https://noah.dev/ontologies/otir/SportEvent
+:SportEvent rdf:type owl:Class ;
+            rdfs:subClassOf schema:Event ;
+            rdfs:comment "Events related to sports activities." ;
+            rdfs:label "Sport Event" .
+
+
+###  https://noah.dev/ontologies/otir/TechnologicalEvent
+:TechnologicalEvent rdf:type owl:Class ;
+                    rdfs:subClassOf schema:Event ;
+                    rdfs:comment "Events related to technology, innovation, or science." ;
+                    rdfs:label "Technological Event" .
+
+
+###  https://noah.dev/ontologies/otir/TouristicHotel
+:TouristicHotel rdf:type owl:Class ;
+                rdfs:subClassOf schema:Hotel ;
+                rdfs:comment "Hotel mainly aimed at leisure travelers." ;
+                rdfs:label "Touristic Hotel" .
+
+
+###  https://schema.org/City
+schema:City rdf:type owl:Class ;
+            rdfs:comment "Municipalities or geographic locations within the ontology." ;
+            rdfs:label "City" .
+
+
+###  https://schema.org/Event
+schema:Event rdf:type owl:Class ;
+             rdfs:subClassOf schema:Place ;
+             rdfs:comment "Activities or events that take place in a city and are intended for the public." ;
+             rdfs:label "Event" .
+
+
+###  https://schema.org/Hotel
+schema:Hotel rdf:type owl:Class ;
+             rdfs:subClassOf schema:Place ;
+             rdfs:comment "Establishments offering accommodation to travelers and tourists." ;
+             rdfs:label "Hotel" .
+
+
+###  https://schema.org/Place
+schema:Place rdf:type owl:Class ;
+             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty :LocatedInCity ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass schema:City
+                             ] ;
+             rdfs:comment "A general class representing any physical location, such as a hotel, restaurant, attraction, or event venue, which is associated with a specific city." ;
+             rdfs:label "Place" .
+
+
+###  https://schema.org/Restaurant
+schema:Restaurant rdf:type owl:Class ;
+                  rdfs:subClassOf schema:Place ;
+                  rdfs:comment "Establishments offering food and beverage services." ;
+                  rdfs:label "Restaurant" .
+
+
+###  https://schema.org/TouristAttraction
+schema:TouristAttraction rdf:type owl:Class ;
+                         rdfs:subClassOf schema:Place ;
+                         rdfs:comment "Tourist places of interest that can be visited by users." ;
+                         rdfs:label "Tourist Attraction" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://noah.dev/ontologies/otir/Barcelona
+:Barcelona rdf:type owl:NamedIndividual ,
+                    schema:City ;
+           :Location "41.3874,2.1686" ;
+           :Name "Barcelona" ;
+           rdfs:comment "City of Barcelona, known for its architecture, culture, and Mediterranean coast." ;
+           rdfs:label "Barcelona" .
+
+
+###  https://noah.dev/ontologies/otir/Bilbao
+:Bilbao rdf:type owl:NamedIndividual ,
+                 schema:City ;
+        :HasLocation :CongresBilbao ,
+                     :HotelRoyalBilbao ;
+        :Location "43.2630,-2.9350" ;
+        :Name "Bilbao" ;
+        rdfs:comment "City of Bilbao, famous for the Guggenheim Museum and Basque culture." ;
+        rdfs:label "Bilbao" .
+
+
+###  https://noah.dev/ontologies/otir/Cadis
+:Cadis rdf:type owl:NamedIndividual ,
+                schema:City ;
+       :HasLocation :CarnavalCadis ,
+                    :CastellCadis ,
+                    :CongresCadis ;
+       :Location "36.5297,-6.2920" ;
+       :Name "Cadis" ;
+       rdfs:comment "City of Cadis, a historic port city in southwestern Spain." ;
+       rdfs:label "Cadis" .
+
+
+###  https://noah.dev/ontologies/otir/CarnavalCadis
+:CarnavalCadis rdf:type owl:NamedIndividual ,
+                        :SportEvent ;
+               :Date "2024-04-19"^^xsd:date ;
+               :Name "Carnaval Cadis" ;
+               rdfs:comment "Event in Cadis, a traditional and colorful carnival celebration." ;
+               rdfs:label "Carnaval Cadis" .
+
+
+###  https://noah.dev/ontologies/otir/CarnavalSevilla
+:CarnavalSevilla rdf:type owl:NamedIndividual ,
+                          :MusicEvent ;
+                 :Date "2024-05-08"^^xsd:date ;
+                 :Name "Carnaval Sevilla" ;
+                 rdfs:comment "Event in Sevilla, a vibrant carnival featuring music and parades." ;
+                 rdfs:label "Carnaval Sevilla" .
+
+
+###  https://noah.dev/ontologies/otir/CastellCadis
+:CastellCadis rdf:type owl:NamedIndividual ,
+                       :Beach ;
+              :Name "Castell Cadis" ;
+              :Rating 3.5 ;
+              rdfs:comment "Tourist attraction in Cadis, a historical castle near the coast." ;
+              rdfs:label "Castell Cadis" .
+
+
+###  https://noah.dev/ontologies/otir/CastellSaragossa
+:CastellSaragossa rdf:type owl:NamedIndividual ,
+                           :Museum ;
+                  :Name "Castell Saragossa" ;
+                  :Rating 5.0 ;
+                  rdfs:comment "Tourist attraction in Saragossa, a historical castle open to visitors." ;
+                  rdfs:label "Castell Saragossa" .
+
+
+###  https://noah.dev/ontologies/otir/CastellSevilla
+:CastellSevilla rdf:type owl:NamedIndividual ,
+                         :Monument ;
+                :Name "Castell Sevilla" ;
+                :Rating 4.6 ;
+                rdfs:comment "Tourist attraction in Sevilla, a well-preserved historical castle." ;
+                rdfs:label "Castell Sevilla" .
+
+
+###  https://noah.dev/ontologies/otir/CatedralSevilla
+:CatedralSevilla rdf:type owl:NamedIndividual ,
+                          :Museum ;
+                 :Name "Catedral Sevilla" ;
+                 :Rating 4.9 ;
+                 rdfs:comment "Tourist attraction in Sevilla, a cultural and historical palace." ;
+                 rdfs:label "Catedral Sevilla" .
+
+
+###  https://noah.dev/ontologies/otir/CongresBilbao
+:CongresBilbao rdf:type owl:NamedIndividual ,
+                        :CulturalEvent ;
+               :Date "2024-12-01"^^xsd:date ;
+               :Name "Congrés Bilbao" ;
+               rdfs:comment "Event in Bilbao, a conference with a cultural theme." ;
+               rdfs:label "Congres Bilbao" .
+
+
+###  https://noah.dev/ontologies/otir/CongresCadis
+:CongresCadis rdf:type owl:NamedIndividual ,
+                       :SportEvent ;
+              :Date "2024-06-02"^^xsd:date ;
+              :Name "Congrés Cadis" ;
+              rdfs:comment "Event in Cadis, a congress related to sports activities." ;
+              rdfs:label "Congres Cadis" .
+
+
+###  https://noah.dev/ontologies/otir/FiraToledo
+:FiraToledo rdf:type owl:NamedIndividual ,
+                     :SportEvent ;
+            :Date "2024-08-26"^^xsd:date ;
+            :Name "Fira Toledo" ;
+            rdfs:comment "Event in Toledo, a fair related to local traditions and sports." ;
+            rdfs:label "Fira Toledo" .
+
+
+###  https://noah.dev/ontologies/otir/HotelDelMarSevilla
+:HotelDelMarSevilla rdf:type owl:NamedIndividual ,
+                             :TouristicHotel ;
+                    :Name "Hotel Del Mar Sevilla" ;
+                    :NightPrice 95 ;
+                    :Rating 4.4 ;
+                    :StarRating 5 ;
+                    rdfs:comment "A luxury hotel located in the heart of Saragossa, offering premium accommodation and services for a high-end experience." ;
+                    rdfs:label "Hotel Del Mar Sevilla" .
+
+
+###  https://noah.dev/ontologies/otir/HotelRoyalBilbao
+:HotelRoyalBilbao rdf:type owl:NamedIndividual ,
+                           :TouristicHotel ;
+                  :Name "Hotel Royal Bilbao" ;
+                  :NightPrice 232 ;
+                  :Rating 3.6 ;
+                  :StarRating 3 ;
+                  rdfs:comment "Hotel in Bilbao, ideal for tourists and business travelers." ;
+                  rdfs:label "Hotel Royal Bilbao" .
+
+
+###  https://noah.dev/ontologies/otir/HotelRoyalMalaga
+:HotelRoyalMalaga rdf:type owl:NamedIndividual ,
+                           :TouristicHotel ;
+                  :Name "Hotel Royal Málaga" ;
+                  :NightPrice 175 ;
+                  :Rating 4.6 ;
+                  :StarRating 5 ;
+                  rdfs:comment "Hotel in Málaga, a five-star accommodation near the coast." ;
+                  rdfs:label "Hotel Royal Málaga" .
+
+
+###  https://noah.dev/ontologies/otir/HotelRoyalPamplona
+:HotelRoyalPamplona rdf:type owl:NamedIndividual ,
+                             :LuxuryHotel ;
+                    :Name "Hotel Royal Pamplona" ;
+                    :NightPrice 56 ;
+                    :Rating 3.9 ;
+                    :StarRating 3 ;
+                    rdfs:comment "Hotel in Pamplona, a comfortable option for visitors to the city." ;
+                    rdfs:label "Hotel Royal Pamplona" .
+
+
+###  https://noah.dev/ontologies/otir/HotelVistaSevilla
+:HotelVistaSevilla rdf:type owl:NamedIndividual ,
+                            :BeachHotel ;
+                   :Name "Hotel Vista Sevilla" ;
+                   :NightPrice 278 ;
+                   :Rating 4.7 ;
+                   :StarRating 4 ;
+                   rdfs:comment "Hotel in Sevilla, a four-star hotel located close to the beach." ;
+                   rdfs:label "Hotel Vista Sevilla" .
+
+
+###  https://noah.dev/ontologies/otir/Madrid
+:Madrid rdf:type owl:NamedIndividual ,
+                 schema:City ;
+        :HasLocation :MuseuMadrid ,
+                     :RestaurantGourmetMadrid ;
+        :Location "40.4168,-3.7038" ;
+        :Name "Madrid" ;
+        rdfs:comment "City of Madrid, the capital of Spain, known for its museums and lively culture." ;
+        rdfs:label "Madrid" .
+
+
+###  https://noah.dev/ontologies/otir/MuseuMadrid
+:MuseuMadrid rdf:type owl:NamedIndividual ,
+                      :Museum ;
+             :Name "Museu Madrid" ;
+             :Rating 3.7 ;
+             rdfs:comment "Tourist attraction in Madrid, a museum showcasing local and international art." ;
+             rdfs:label "Museu Madrid" .
+
+
+###  https://noah.dev/ontologies/otir/Málaga
+:Málaga rdf:type owl:NamedIndividual ,
+                 schema:City ;
+        :HasLocation :HotelRoyalMalaga ,
+                     :RestaurantDeliciaMalaga ;
+        :Location "36.7213,-4.4210" ;
+        :Name "Màlaga" ;
+        rdfs:comment "City of Málaga, a coastal city known for its beaches and historical sites." ;
+        rdfs:label "Málaga" .
+
+
+###  https://noah.dev/ontologies/otir/Pamplona
+:Pamplona rdf:type owl:NamedIndividual ,
+                   schema:City ;
+          :HasLocation :HotelRoyalPamplona ,
+                       :RestaurantDeliciaPamplona ;
+          :Location "42.8169,-1.6444" ;
+          :Name "Pamplona" ;
+          rdfs:comment "City of Pamplona, internationally known for the San Fermín festival." ;
+          rdfs:label "Pamplona" .
+
+
+###  https://noah.dev/ontologies/otir/RestaurantDeliciaMalaga
+:RestaurantDeliciaMalaga rdf:type owl:NamedIndividual ,
+                                  :JapaneseCuisine ;
+                         :AveragePrice 38 ;
+                         :Name "Restaurant Delicia Malaga" ;
+                         rdfs:comment "Restaurant in Málaga, offering high-quality Japanese cuisine." ;
+                         rdfs:label "Restaurant Delicia Malaga" .
+
+
+###  https://noah.dev/ontologies/otir/RestaurantDeliciaPamplona
+:RestaurantDeliciaPamplona rdf:type owl:NamedIndividual ,
+                                    :MexicanCuisine ;
+                           :AveragePrice 36 ;
+                           :Name "Restaurant Delicia Pamplona" ;
+                           rdfs:comment "Restaurant in Pamplona, serving Mexican cuisine with excellent reviews." ;
+                           rdfs:label "Restaurant Delicia Pamplona" .
+
+
+###  https://noah.dev/ontologies/otir/RestaurantFusioValencia
+:RestaurantFusioValencia rdf:type owl:NamedIndividual ,
+                                  :AndalusianCuisine ;
+                         :AveragePrice 13 ;
+                         :Name "Restaurant Fusio Valencia" ;
+                         rdfs:comment "Restaurant in València, offering a fusion of Andalusian flavors." ;
+                         rdfs:label "Restaurant Fusio Valencia" .
+
+
+###  https://noah.dev/ontologies/otir/RestaurantGourmetMadrid
+:RestaurantGourmetMadrid rdf:type owl:NamedIndividual ,
+                                  :JapaneseCuisine ;
+                         :AveragePrice 30 ;
+                         :Name "Restaurant Gourmet Madrid" ;
+                         rdfs:comment "Restaurant in Madrid, specialized in high-end Japanese cuisine." ;
+                         rdfs:label "Restaurant Gourmet Madrid" .
+
+
+###  https://noah.dev/ontologies/otir/RestaurantTradicioToledo
+:RestaurantTradicioToledo rdf:type owl:NamedIndividual ,
+                                   :MexicanCuisine ;
+                          :AveragePrice 46 ;
+                          :Name "Restaurant Tradicio Toledo" ;
+                          rdfs:comment "Restaurant in Toledo, serving traditional Mexican cuisine." ;
+                          rdfs:label "Restaurant Tradicio Toledo" .
+
+
+###  https://noah.dev/ontologies/otir/SanSebastian
+:SanSebastian rdf:type owl:NamedIndividual ,
+                       schema:City ;
+              :Location "43.3183,-1.9812" ;
+              :Name "Sant Sebastià" ;
+              rdfs:comment "City of Sant Sebastià, known for its beaches and culinary excellence." ;
+              rdfs:label "San Sebastian" .
+
+
+###  https://noah.dev/ontologies/otir/Saragossa
+:Saragossa rdf:type owl:NamedIndividual ,
+                    schema:City ;
+           :HasLocation :CastellSaragossa ;
+           :Location "41.6488,-0.8891" ;
+           :Name "Saragossa" ;
+           rdfs:comment "City of Saragossa, known for its historical heritage and cultural events." ;
+           rdfs:label "Saragossa" .
+
+
+###  https://noah.dev/ontologies/otir/Sevilla
+:Sevilla rdf:type owl:NamedIndividual ,
+                  schema:City ;
+         :HasLocation :CarnavalSevilla ,
+                      :CastellSevilla ,
+                      :CatedralSevilla ,
+                      :HotelDelMarSevilla ,
+                      :HotelVistaSevilla ;
+         :Location "37.3886,-5.9823" ;
+         :Name "Sevilla" ;
+         rdfs:comment "City of Sevilla, famous for its flamenco culture and historic architecture." ;
+         rdfs:label "Sevilla" .
+
+
+###  https://noah.dev/ontologies/otir/Toledo
+:Toledo rdf:type owl:NamedIndividual ,
+                 schema:City ;
+        :HasLocation :FiraToledo ,
+                     :RestaurantTradicioToledo ;
+        :Location "39.8628,-4.0273" ;
+        :Name "Toledo" ;
+        rdfs:comment "City of Toledo, known for its medieval history and multicultural heritage." ;
+        rdfs:label "Toledo" .
+
+
+###  https://noah.dev/ontologies/otir/Valencia
+:Valencia rdf:type owl:NamedIndividual ,
+                   schema:City ;
+          :HasLocation :RestaurantFusioValencia ;
+          :Location "39.4699,-0.3763" ;
+          :Name "València" ;
+          rdfs:comment "City of Valencia, located on the east coast of Spain, known for its arts and science complex." ;
+          rdfs:label "Valencia" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( schema:City
+                schema:Event
+                schema:Hotel
+                schema:Restaurant
+                schema:TouristAttraction
+              )
+] .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+:H1 rdf:type swrl:Variable .
+
+:C rdf:type swrl:Variable .
+
+:R1 rdf:type swrl:Variable .
+
+:H2 rdf:type swrl:Variable .
+
+:R2 rdf:type swrl:Variable .
+
+:P1 rdf:type swrl:Variable .
+
+:P2 rdf:type swrl:Variable .
+
+:N1 rdf:type swrl:Variable .
+
+:N2 rdf:type swrl:Variable .
+
+:Ta1 rdf:type swrl:Variable .
+
+:Ta2 rdf:type swrl:Variable .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Rule that assigns the best hotel of the city. If the hotel is the only one in the city, it doesn't count." ;
+   rdfs:label "BestHotelRule" ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate schema:Hotel ;
+                           swrl:argument1 :H1
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate :LocatedInCity ;
+                                      swrl:argument1 :H1 ;
+                                      swrl:argument2 :C
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                 swrl:propertyPredicate :Rating ;
+                                                 swrl:argument1 :H1 ;
+                                                 swrl:argument2 :R1
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:ClassAtom ;
+                                                            swrl:classPredicate schema:Hotel ;
+                                                            swrl:argument1 :H2
+                                                          ] ;
+                                                rdf:rest [ rdf:type swrl:AtomList ;
+                                                           rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                       swrl:propertyPredicate :LocatedInCity ;
+                                                                       swrl:argument1 :H2 ;
+                                                                       swrl:argument2 :C
+                                                                     ] ;
+                                                           rdf:rest [ rdf:type swrl:AtomList ;
+                                                                      rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                                                  swrl:propertyPredicate :Rating ;
+                                                                                  swrl:argument1 :H2 ;
+                                                                                  swrl:argument2 :R2
+                                                                                ] ;
+                                                                      rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                 rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                                                             swrl:builtin swrlb:greaterThan ;
+                                                                                             swrl:arguments ( :R1
+                                                                                                              :R2
+                                                                                                            )
+                                                                                           ] ;
+                                                                                 rdf:rest rdf:nil
+                                                                               ]
+                                                                    ]
+                                                         ]
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :BestHotel ;
+                           swrl:argument1 :H1 ;
+                           swrl:argument2 :C
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Rule that indicates the rest of the places in the same city as the consulted place." ;
+   rdfs:label "SameCityRule" ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate schema:Place ;
+                           swrl:argument1 :P1
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:ClassAtom ;
+                                      swrl:classPredicate schema:Place ;
+                                      swrl:argument1 :P2
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                 swrl:propertyPredicate :Name ;
+                                                 swrl:argument1 :P1 ;
+                                                 swrl:argument2 :N1
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                            swrl:propertyPredicate :Name ;
+                                                            swrl:argument1 :P2 ;
+                                                            swrl:argument2 :N2
+                                                          ] ;
+                                                rdf:rest [ rdf:type swrl:AtomList ;
+                                                           rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                                       swrl:builtin swrlb:notEqual ;
+                                                                       swrl:arguments ( :N1
+                                                                                        :N2
+                                                                                      )
+                                                                     ] ;
+                                                           rdf:rest [ rdf:type swrl:AtomList ;
+                                                                      rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                                  swrl:propertyPredicate :LocatedInCity ;
+                                                                                  swrl:argument1 :P1 ;
+                                                                                  swrl:argument2 :C
+                                                                                ] ;
+                                                                      rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                 rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                                             swrl:propertyPredicate :LocatedInCity ;
+                                                                                             swrl:argument1 :P2 ;
+                                                                                             swrl:argument2 :C
+                                                                                           ] ;
+                                                                                 rdf:rest rdf:nil
+                                                                               ]
+                                                                    ]
+                                                         ]
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :SameCity ;
+                           swrl:argument1 :P1 ;
+                           swrl:argument2 :P2
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Rule that assigns the best tourist attraction of the city. If the attraction is the only one in city, it doesn't count." ;
+   rdfs:label "BestTouristAttractionRule" ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate schema:TouristAttraction ;
+                           swrl:argument1 :Ta1
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate :LocatedInCity ;
+                                      swrl:argument1 :Ta1 ;
+                                      swrl:argument2 :C
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                 swrl:propertyPredicate :Rating ;
+                                                 swrl:argument1 :Ta1 ;
+                                                 swrl:argument2 :R1
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:ClassAtom ;
+                                                            swrl:classPredicate schema:TouristAttraction ;
+                                                            swrl:argument1 :Ta2
+                                                          ] ;
+                                                rdf:rest [ rdf:type swrl:AtomList ;
+                                                           rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                       swrl:propertyPredicate :LocatedInCity ;
+                                                                       swrl:argument1 :Ta2 ;
+                                                                       swrl:argument2 :C
+                                                                     ] ;
+                                                           rdf:rest [ rdf:type swrl:AtomList ;
+                                                                      rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                                                  swrl:propertyPredicate :Rating ;
+                                                                                  swrl:argument1 :Ta2 ;
+                                                                                  swrl:argument2 :R2
+                                                                                ] ;
+                                                                      rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                 rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                                                             swrl:builtin swrlb:greaterThan ;
+                                                                                             swrl:arguments ( :R1
+                                                                                                              :R2
+                                                                                                            )
+                                                                                           ] ;
+                                                                                 rdf:rest rdf:nil
+                                                                               ]
+                                                                    ]
+                                                         ]
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :BestTouristAttraction ;
+                           swrl:argument1 :Ta1 ;
+                           swrl:argument2 :C
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
