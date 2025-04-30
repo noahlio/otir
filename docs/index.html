@@ -1,0 +1,2430 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="resources/primer.css" media="screen"/>
+<link rel="stylesheet" href="resources/rec.css" media="screen"/>
+<link rel="stylesheet" href="resources/extra.css" media="screen"/>
+<link rel="stylesheet" href="resources/owl.css" media="screen"/>
+<link rel="stylesheet" href="resources/dark.css" media="(prefers-color-scheme: dark)"/>
+<link rel="stylesheet" href="resources/light.css" media="(prefers-color-scheme: light)"/>
+<link rel="stylesheet" href="resources/slider.css" media="screen"/>
+<meta name="color-scheme" content="dark light">
+<script type="module" src="resources/dark-mode-toggle.mjs"></script><div class="darkmode">
+	<dark-mode-toggle class="slider"></dark-mode-toggle>
+</div>
+ <title>Tourism Information Retrieval Ontology</title>
+
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://noah.dev/ontologies/otir","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://noah.dev/ontologies/otir","name":"Tourism Information Retrieval Ontology", "headline":"Document describing the ontology https://noah.dev/ontologies/otir", "dateReleased":"Wed Apr 30 21:02:27 CEST 2025", "author":[{"@type":"Person","name":"Noah"}]}</script>
+
+<script src="resources/jquery.js"></script> 
+<script src="resources/marked.min.js"></script> 
+    <script> 
+function loadHash() {
+  jQuery(".markdown").each(function(el){jQuery(this).after(marked.parse(jQuery(this).text())).remove()});
+	var hash = location.hash;
+	if($(hash).offset()!=null){
+	  $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+}
+	loadTOC();
+}
+function loadTOC(){
+	//process toc dynamically
+	  var t='<h2>Table of contents</h2><ul>';i = 1;j=0;
+	  jQuery(".list").each(function(){
+		if(jQuery(this).is('h2')){
+			if(j>0){
+				t+='</ul>';
+				j=0;
+			}
+			t+= '<li>'+i+'. <a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+			i++;
+		}
+		if(jQuery(this).is('h3')){
+			if(j==0){
+				t+='<ul>';
+			}
+			j++;
+			t+= '<li>'+(i-1)+'.'+j+'. '+'<a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+		}
+	  });
+	  t+='</ul>';
+	  $("#toc").html(t); 
+}
+$(function(){
+    loadHash();
+}); $.fn.ignore = function(sel){
+        return this.clone().find(sel||">*").remove().end();
+ }; 
+   </script> 
+  </head> 
+
+<body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
+<h1>Tourism Information Retrieval Ontology</h1>
+
+
+<dl>
+<dt>Latest version:</dt>
+<dd><a href="https://noah.dev/ontologies/otir">https://noah.dev/ontologies/otir</a></dd>
+<dt>Authors:</dt>
+<dd>Noah</dd>
+
+<dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="http://insertlicenseURIhere.example.org" target="_blank"><img src="https://img.shields.io/badge/License-MIT%20License-blue.svg" alt="http://insertlicenseURIhere.example.org" /></a>
+</dd><!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Cite as:</dt>
+<dd>Noah. Tourism Information Retrieval Ontology.</dd>
+</dl>
+
+<hr/>
+</div>
+<div class="status">
+<div>
+<span>Ontology Specification Draft</span>
+</div>
+</div>     <div id="abstract"><h2>Abstract</h2>
+   <p>
+This ontology models key concepts related to tourism information and recommendations, including hotels, tourist attractions, restaurants, events, and cities. 
+   </p>
+   <p>
+It enables semantic reasoning to identify the best-rated options in a given city using SWRL rules. 
+   </p>
+   <p>
+The ontology integrates terms from <a href="https://schema.org">schema.org</a> and aims to support intelligent systems that provide tourism-related suggestions based on user preferences and ratings.
+</p>
+</div>
+<div id="toc"></div> 
+
+<!--INTRODUCTION SECTION-->
+    <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This is a place holder text for the introduction. The introduction should briefly describe the ontology, its motivation, state of the art and goals.</span>
+<div id="namespacedeclarations">
+<h3 id="ns" class="list">Namespace declarations</h3>
+<div id="ns" align="center">
+<table>
+<caption> <a href="#ns"> Table 1</a>: Namespaces used in the document </caption>
+<tbody>
+<tr><td><b>[Ontology NS Prefix]</b></td><td>&lt;https://noah.dev/ontologies/otir/&gt;</td></tr>
+<tr><td><b>dc</b></td><td>&lt;http://purl.org/dc/elements/1.1/&gt;</td></tr>
+<tr><td><b>elements</b></td><td>&lt;https://purl.org/dc/elements/1.1/&gt;</td></tr>
+<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl#&gt;</td></tr>
+<tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</td></tr>
+<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</td></tr>
+<tr><td><b>schema</b></td><td>&lt;https://schema.org/&gt;</td></tr>
+<tr><td><b>swrl</b></td><td>&lt;http://www.w3.org/2003/11/swrl#&gt;</td></tr>
+<tr><td><b>swrla</b></td><td>&lt;http://swrl.stanford.edu/ontologies/3.3/swrla.owl#&gt;</td></tr>
+<tr><td><b>swrlb</b></td><td>&lt;http://www.w3.org/2003/11/swrlb#&gt;</td></tr>
+<tr><td><b>xml</b></td><td>&lt;http://www.w3.org/XML/1998/namespace&gt;</td></tr>
+<tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema#&gt;</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">Tourism Information Retrieval Ontology: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#/AndalusianCuisine"
+         title="https://noah.dev/ontologies/otir/AndalusianCuisine">Andalusian Cuisine</a>
+   </li>
+   <li>
+      <a href="#/Beach" title="https://noah.dev/ontologies/otir/Beach">Beach</a>
+   </li>
+   <li>
+      <a href="#/BeachHotel" title="https://noah.dev/ontologies/otir/BeachHotel">Beach Hotel</a>
+   </li>
+   <li>
+      <a href="#/BusinessHotel" title="https://noah.dev/ontologies/otir/BusinessHotel">Business Hotel</a>
+   </li>
+   <li>
+      <a href="#https://schema.org/City" title="https://schema.org/City">City</a>
+   </li>
+   <li>
+      <a href="#/Cultural" title="https://noah.dev/ontologies/otir/Cultural">Cultural</a>
+   </li>
+   <li>
+      <a href="#/CulturalEvent" title="https://noah.dev/ontologies/otir/CulturalEvent">Cultural Event</a>
+   </li>
+   <li>
+      <a href="#https://schema.org/Event" title="https://schema.org/Event">Event</a>
+   </li>
+   <li>
+      <a href="#/GastronomicEvent"
+         title="https://noah.dev/ontologies/otir/GastronomicEvent">Gastronomic Event</a>
+   </li>
+   <li>
+      <a href="#https://schema.org/Hotel" title="https://schema.org/Hotel">Hotel</a>
+   </li>
+   <li>
+      <a href="#/ItalianCuisine" title="https://noah.dev/ontologies/otir/ItalianCuisine">Italian Cuisine</a>
+   </li>
+   <li>
+      <a href="#/JapaneseCuisine" title="https://noah.dev/ontologies/otir/JapaneseCuisine">Japanese Cuisine</a>
+   </li>
+   <li>
+      <a href="#/LuxuryHotel" title="https://noah.dev/ontologies/otir/LuxuryHotel">Luxury Hotel</a>
+   </li>
+   <li>
+      <a href="#/MediterraneanCuisine"
+         title="https://noah.dev/ontologies/otir/MediterraneanCuisine">Mediterranean Cuisine</a>
+   </li>
+   <li>
+      <a href="#/MexicanCuisine" title="https://noah.dev/ontologies/otir/MexicanCuisine">Mexican Cuisine</a>
+   </li>
+   <li>
+      <a href="#/Monument" title="https://noah.dev/ontologies/otir/Monument">Monument</a>
+   </li>
+   <li>
+      <a href="#/Museum" title="https://noah.dev/ontologies/otir/Museum">Museum</a>
+   </li>
+   <li>
+      <a href="#/MusicEvent" title="https://noah.dev/ontologies/otir/MusicEvent">Music Event</a>
+   </li>
+   <li>
+      <a href="#/Park" title="https://noah.dev/ontologies/otir/Park">Park</a>
+   </li>
+   <li>
+      <a href="#https://schema.org/Place" title="https://schema.org/Place">Place</a>
+   </li>
+   <li>
+      <a href="#https://schema.org/Restaurant" title="https://schema.org/Restaurant">Restaurant</a>
+   </li>
+   <li>
+      <a href="#/RuralHotel" title="https://noah.dev/ontologies/otir/RuralHotel">Rural Hotel</a>
+   </li>
+   <li>
+      <a href="#/SportEvent" title="https://noah.dev/ontologies/otir/SportEvent">Sport Event</a>
+   </li>
+   <li>
+      <a href="#/TechnologicalEvent"
+         title="https://noah.dev/ontologies/otir/TechnologicalEvent">Technological Event</a>
+   </li>
+   <li>
+      <a href="#https://schema.org/TouristAttraction" title="https://schema.org/TouristAttraction">Tourist Attraction</a>
+   </li>
+   <li>
+      <a href="#/TouristicHotel" title="https://noah.dev/ontologies/otir/TouristicHotel">Touristic Hotel</a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#/BestHotel" title="https://noah.dev/ontologies/otir/BestHotel">Best Hotel</a>
+   </li>
+   <li>
+      <a href="#/BestTouristAttraction"
+         title="https://noah.dev/ontologies/otir/BestTouristAttraction">Best Tourist Attraction</a>
+   </li>
+   <li>
+      <a href="#/HasBestHotel" title="https://noah.dev/ontologies/otir/HasBestHotel">Has Best Hotel</a>
+   </li>
+   <li>
+      <a href="#/HasBestTouristAttraction"
+         title="https://noah.dev/ontologies/otir/HasBestTouristAttraction">Has Best Tourist Attraction</a>
+   </li>
+   <li>
+      <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a>
+   </li>
+   <li>
+      <a href="#/LocatedInCity" title="https://noah.dev/ontologies/otir/LocatedInCity">Located In City</a>
+   </li>
+   <li>
+      <a href="#/SameCity" title="https://noah.dev/ontologies/otir/SameCity">Same City</a>
+   </li>
+</ul><h4>Data Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#/AveragePrice" title="https://noah.dev/ontologies/otir/AveragePrice">Average Price</a>
+   </li>
+   <li>
+      <a href="#/Date" title="https://noah.dev/ontologies/otir/Date">Date</a>
+   </li>
+   <li>
+      <a href="#/Location" title="https://noah.dev/ontologies/otir/Location">Location</a>
+   </li>
+   <li>
+      <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a>
+   </li>
+   <li>
+      <a href="#/NightPrice" title="https://noah.dev/ontologies/otir/NightPrice">Night Price</a>
+   </li>
+   <li>
+      <a href="#/Rating" title="https://noah.dev/ontologies/otir/Rating">Rating</a>
+   </li>
+   <li>
+      <a href="#/StarRating" title="https://noah.dev/ontologies/otir/StarRating">Star Rating</a>
+   </li>
+</ul><h4>Annotation Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#http://purl.org/dc/elements/1.1/creator" title="http://purl.org/dc/elements/1.1/creator">
+         <span>creator</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/elements/1.1/description" title="http://purl.org/dc/elements/1.1/description">
+         <span>description</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://purl.org/dc/elements/1.1/description" title="https://purl.org/dc/elements/1.1/description">
+         <span>description</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"
+         title="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled">
+         <span>is Rule Enabled</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/elements/1.1/license" title="http://purl.org/dc/elements/1.1/license">
+         <span>license</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://purl.org/dc/elements/1.1/license" title="https://purl.org/dc/elements/1.1/license">
+         <span>license</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/elements/1.1/rights" title="http://purl.org/dc/elements/1.1/rights">
+         <span>rights</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://purl.org/dc/elements/1.1/rights" title="https://purl.org/dc/elements/1.1/rights">
+         <span>rights</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#symmetricProperty" title="http://www.w3.org/2002/07/owl#symmetricProperty">
+         <span>symmetric Property</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/elements/1.1/title" title="http://purl.org/dc/elements/1.1/title">
+         <span>title</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://purl.org/dc/elements/1.1/title" title="https://purl.org/dc/elements/1.1/title">
+         <span>title</span>
+      </a>
+   </li>
+</ul><h4>Named Individuals</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#/Barcelona" title="https://noah.dev/ontologies/otir/Barcelona">Barcelona</a>
+   </li>
+   <li>
+      <a href="#/Bilbao" title="https://noah.dev/ontologies/otir/Bilbao">Bilbao</a>
+   </li>
+   <li>
+      <a href="#/Cadis" title="https://noah.dev/ontologies/otir/Cadis">Cadis</a>
+   </li>
+   <li>
+      <a href="#/CarnavalCadis" title="https://noah.dev/ontologies/otir/CarnavalCadis">Carnaval Cadis</a>
+   </li>
+   <li>
+      <a href="#/CarnavalSevilla" title="https://noah.dev/ontologies/otir/CarnavalSevilla">Carnaval Sevilla</a>
+   </li>
+   <li>
+      <a href="#/CastellCadis" title="https://noah.dev/ontologies/otir/CastellCadis">Castell Cadis</a>
+   </li>
+   <li>
+      <a href="#/CastellSaragossa"
+         title="https://noah.dev/ontologies/otir/CastellSaragossa">Castell Saragossa</a>
+   </li>
+   <li>
+      <a href="#/CastellSevilla" title="https://noah.dev/ontologies/otir/CastellSevilla">Castell Sevilla</a>
+   </li>
+   <li>
+      <a href="#/CatedralSevilla" title="https://noah.dev/ontologies/otir/CatedralSevilla">Catedral Sevilla</a>
+   </li>
+   <li>
+      <a href="#/CongresBilbao" title="https://noah.dev/ontologies/otir/CongresBilbao">Congres Bilbao</a>
+   </li>
+   <li>
+      <a href="#/CongresCadis" title="https://noah.dev/ontologies/otir/CongresCadis">Congres Cadis</a>
+   </li>
+   <li>
+      <a href="#/FiraToledo" title="https://noah.dev/ontologies/otir/FiraToledo">Fira Toledo</a>
+   </li>
+   <li>
+      <a href="#/HotelDelMarSevilla"
+         title="https://noah.dev/ontologies/otir/HotelDelMarSevilla">Hotel Del Mar Sevilla</a>
+   </li>
+   <li>
+      <a href="#/HotelRoyalBilbao"
+         title="https://noah.dev/ontologies/otir/HotelRoyalBilbao">Hotel Royal Bilbao</a>
+   </li>
+   <li>
+      <a href="#/HotelRoyalMalaga"
+         title="https://noah.dev/ontologies/otir/HotelRoyalMalaga">Hotel Royal Málaga</a>
+   </li>
+   <li>
+      <a href="#/HotelRoyalPamplona"
+         title="https://noah.dev/ontologies/otir/HotelRoyalPamplona">Hotel Royal Pamplona</a>
+   </li>
+   <li>
+      <a href="#/HotelVistaSevilla"
+         title="https://noah.dev/ontologies/otir/HotelVistaSevilla">Hotel Vista Sevilla</a>
+   </li>
+   <li>
+      <a href="#/Madrid" title="https://noah.dev/ontologies/otir/Madrid">Madrid</a>
+   </li>
+   <li>
+      <a href="#/MuseuMadrid" title="https://noah.dev/ontologies/otir/MuseuMadrid">Museu Madrid</a>
+   </li>
+   <li>
+      <a href="#/Málaga" title="https://noah.dev/ontologies/otir/Málaga">Málaga</a>
+   </li>
+   <li>
+      <a href="#/Pamplona" title="https://noah.dev/ontologies/otir/Pamplona">Pamplona</a>
+   </li>
+   <li>
+      <a href="#/RestaurantDeliciaMalaga"
+         title="https://noah.dev/ontologies/otir/RestaurantDeliciaMalaga">Restaurant Delicia Malaga</a>
+   </li>
+   <li>
+      <a href="#/RestaurantDeliciaPamplona"
+         title="https://noah.dev/ontologies/otir/RestaurantDeliciaPamplona">Restaurant Delicia Pamplona</a>
+   </li>
+   <li>
+      <a href="#/RestaurantFusioValencia"
+         title="https://noah.dev/ontologies/otir/RestaurantFusioValencia">Restaurant Fusio Valencia</a>
+   </li>
+   <li>
+      <a href="#/RestaurantGourmetMadrid"
+         title="https://noah.dev/ontologies/otir/RestaurantGourmetMadrid">Restaurant Gourmet Madrid</a>
+   </li>
+   <li>
+      <a href="#/RestaurantTradicioToledo"
+         title="https://noah.dev/ontologies/otir/RestaurantTradicioToledo">Restaurant Tradicio Toledo</a>
+   </li>
+   <li>
+      <a href="#/SanSebastian" title="https://noah.dev/ontologies/otir/SanSebastian">San Sebastian</a>
+   </li>
+   <li>
+      <a href="#/Saragossa" title="https://noah.dev/ontologies/otir/Saragossa">Saragossa</a>
+   </li>
+   <li>
+      <a href="#/Sevilla" title="https://noah.dev/ontologies/otir/Sevilla">Sevilla</a>
+   </li>
+   <li>
+      <a href="#/Toledo" title="https://noah.dev/ontologies/otir/Toledo">Toledo</a>
+   </li>
+   <li>
+      <a href="#/Valencia" title="https://noah.dev/ontologies/otir/Valencia">Valencia</a>
+   </li>
+</ul><h4> SWRL Rules </h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#d4e1467">BestHotelRule</a>
+   </li>
+   <li>
+      <a href="#d4e1855">BestTouristAttractionRule</a>
+   </li>
+   <li>
+      <a href="#d4e1661">SameCityRule</a>
+   </li>
+</ul>
+</div>
+  
+
+<!--DESCRIPTION SECTION-->
+    <div id="description"><h2 id="desc" class="list">Tourism Information Retrieval Ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+
+<span class="markdown">This ontology describes tourism-related information such as hotels, restaurants, events, and tourist attractions in cities.</span></div>
+   
+
+<!--CROSSREF SECTION-->
+   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for Tourism Information Retrieval Ontology classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by Tourism Information Retrieval Ontology.
+<div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+ <h3 id="classes-headline" class="list">Classes</h3>
+ <ul class="hlist">
+  <li><a href="#/AndalusianCuisine" title="https://noah.dev/ontologies/otir/AndalusianCuisine">Andalusian Cuisine</a></li>
+  <li><a href="#/Beach" title="https://noah.dev/ontologies/otir/Beach">Beach</a></li>
+  <li><a href="#/BeachHotel" title="https://noah.dev/ontologies/otir/BeachHotel">Beach Hotel</a></li>
+  <li><a href="#/BusinessHotel" title="https://noah.dev/ontologies/otir/BusinessHotel">Business Hotel</a></li>
+  <li><a href="#https://schema.org/City" title="https://schema.org/City">City</a></li>
+  <li><a href="#/Cultural" title="https://noah.dev/ontologies/otir/Cultural">Cultural</a></li>
+  <li><a href="#/CulturalEvent" title="https://noah.dev/ontologies/otir/CulturalEvent">Cultural Event</a></li>
+  <li><a href="#https://schema.org/Event" title="https://schema.org/Event">Event</a></li>
+  <li><a href="#/GastronomicEvent" title="https://noah.dev/ontologies/otir/GastronomicEvent">Gastronomic Event</a></li>
+  <li><a href="#https://schema.org/Hotel" title="https://schema.org/Hotel">Hotel</a></li>
+  <li><a href="#/ItalianCuisine" title="https://noah.dev/ontologies/otir/ItalianCuisine">Italian Cuisine</a></li>
+  <li><a href="#/JapaneseCuisine" title="https://noah.dev/ontologies/otir/JapaneseCuisine">Japanese Cuisine</a></li>
+  <li><a href="#/LuxuryHotel" title="https://noah.dev/ontologies/otir/LuxuryHotel">Luxury Hotel</a></li>
+  <li><a href="#/MediterraneanCuisine" title="https://noah.dev/ontologies/otir/MediterraneanCuisine">Mediterranean Cuisine</a></li>
+  <li><a href="#/MexicanCuisine" title="https://noah.dev/ontologies/otir/MexicanCuisine">Mexican Cuisine</a></li>
+  <li><a href="#/Monument" title="https://noah.dev/ontologies/otir/Monument">Monument</a></li>
+  <li><a href="#/Museum" title="https://noah.dev/ontologies/otir/Museum">Museum</a></li>
+  <li><a href="#/MusicEvent" title="https://noah.dev/ontologies/otir/MusicEvent">Music Event</a></li>
+  <li><a href="#/Park" title="https://noah.dev/ontologies/otir/Park">Park</a></li>
+  <li><a href="#https://schema.org/Place" title="https://schema.org/Place">Place</a></li>
+  <li><a href="#https://schema.org/Restaurant" title="https://schema.org/Restaurant">Restaurant</a></li>
+  <li><a href="#/RuralHotel" title="https://noah.dev/ontologies/otir/RuralHotel">Rural Hotel</a></li>
+  <li><a href="#/SportEvent" title="https://noah.dev/ontologies/otir/SportEvent">Sport Event</a></li>
+  <li><a href="#/TechnologicalEvent" title="https://noah.dev/ontologies/otir/TechnologicalEvent">Technological Event</a></li>
+  <li><a href="#https://schema.org/TouristAttraction" title="https://schema.org/TouristAttraction">Tourist Attraction</a></li>
+  <li><a href="#/TouristicHotel" title="https://noah.dev/ontologies/otir/TouristicHotel">Touristic Hotel</a></li>
+ </ul>
+ <div class="entity" id="/AndalusianCuisine">
+  <h3>Andalusian Cuisine<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/AndalusianCuisine</p>
+  <div class="comment">
+   <span class="markdown">Restaurants specialized in Andalusian cuisine.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/Restaurant" title="https://schema.org/Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#/RestaurantFusioValencia" title="https://noah.dev/ontologies/otir/RestaurantFusioValencia">Restaurant Fusio Valencia</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/Beach">
+  <h3>Beach<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/Beach</p>
+  <div class="comment">
+   <span class="markdown">Tourist attraction related to beaches and coastal areas.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/TouristAttraction" title="https://schema.org/TouristAttraction">Tourist Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#/CastellCadis" title="https://noah.dev/ontologies/otir/CastellCadis">Castell Cadis</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/BeachHotel">
+  <h3>Beach Hotel<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/BeachHotel</p>
+  <div class="comment">
+   <span class="markdown">Hotel located near the beach or with direct beach access.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/Hotel" title="https://schema.org/Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#/HotelVistaSevilla" title="https://noah.dev/ontologies/otir/HotelVistaSevilla">Hotel Vista Sevilla</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/BusinessHotel">
+  <h3>Business Hotel<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/BusinessHotel</p>
+  <div class="comment">
+   <span class="markdown">Hotel oriented towards business travelers and corporate events.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/Hotel" title="https://schema.org/Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://schema.org/City">
+  <h3>City<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.org/City</p>
+  <div class="comment">
+   <span class="markdown">Municipalities or geographic locations within the ontology.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#/HasBestHotel" title="https://noah.dev/ontologies/otir/HasBestHotel">Has Best Hotel</a> <sup class="type-op" title="object property">op</sup>, <a href="#/HasBestTouristAttraction" title="https://noah.dev/ontologies/otir/HasBestTouristAttraction">Has Best Tourist Attraction</a> <sup class="type-op" title="object property">op</sup>, <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup>, <a href="#/Location" title="https://noah.dev/ontologies/otir/Location">Location</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#/BestHotel" title="https://noah.dev/ontologies/otir/BestHotel">Best Hotel</a> <sup class="type-op" title="object property">op</sup>, <a href="#/BestTouristAttraction" title="https://noah.dev/ontologies/otir/BestTouristAttraction">Best Tourist Attraction</a> <sup class="type-op" title="object property">op</sup>, <a href="#/LocatedInCity" title="https://noah.dev/ontologies/otir/LocatedInCity">Located In City</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#/Barcelona" title="https://noah.dev/ontologies/otir/Barcelona">Barcelona</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#/Bilbao" title="https://noah.dev/ontologies/otir/Bilbao">Bilbao</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#/Cadis" title="https://noah.dev/ontologies/otir/Cadis">Cadis</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#/Madrid" title="https://noah.dev/ontologies/otir/Madrid">Madrid</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#/Málaga" title="https://noah.dev/ontologies/otir/Málaga">Málaga</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#/Pamplona" title="https://noah.dev/ontologies/otir/Pamplona">Pamplona</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#/SanSebastian" title="https://noah.dev/ontologies/otir/SanSebastian">San Sebastian</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#/Saragossa" title="https://noah.dev/ontologies/otir/Saragossa">Saragossa</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#/Sevilla" title="https://noah.dev/ontologies/otir/Sevilla">Sevilla</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#/Toledo" title="https://noah.dev/ontologies/otir/Toledo">Toledo</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#/Valencia" title="https://noah.dev/ontologies/otir/Valencia">Valencia</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#https://schema.org/Event" title="https://schema.org/Event">Event</a> <sup class="type-c" title="class">c</sup>, <a href="#https://schema.org/Hotel" title="https://schema.org/Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#https://schema.org/Restaurant" title="https://schema.org/Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>, <a href="#https://schema.org/TouristAttraction" title="https://schema.org/TouristAttraction">Tourist Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/Cultural">
+  <h3>Cultural<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/Cultural</p>
+  <div class="comment">
+   <span class="markdown">Tourist attraction related to various cultural activities or spaces.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/TouristAttraction" title="https://schema.org/TouristAttraction">Tourist Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/CulturalEvent">
+  <h3>Cultural Event<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/CulturalEvent</p>
+  <div class="comment">
+   <span class="markdown">Cultural events such as festivals, fairs, or performances.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/Event" title="https://schema.org/Event">Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#/CongresBilbao" title="https://noah.dev/ontologies/otir/CongresBilbao">Congres Bilbao</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://schema.org/Event">
+  <h3>Event<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.org/Event</p>
+  <div class="comment">
+   <span class="markdown">Activities or events that take place in a city and are intended for the public.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/Place" title="https://schema.org/Place">Place</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#/CulturalEvent" title="https://noah.dev/ontologies/otir/CulturalEvent">Cultural Event</a> <sup class="type-c" title="class">c</sup>, <a href="#/GastronomicEvent" title="https://noah.dev/ontologies/otir/GastronomicEvent">Gastronomic Event</a> <sup class="type-c" title="class">c</sup>, <a href="#/MusicEvent" title="https://noah.dev/ontologies/otir/MusicEvent">Music Event</a> <sup class="type-c" title="class">c</sup>, <a href="#/SportEvent" title="https://noah.dev/ontologies/otir/SportEvent">Sport Event</a> <sup class="type-c" title="class">c</sup>, <a href="#/TechnologicalEvent" title="https://noah.dev/ontologies/otir/TechnologicalEvent">Technological Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#/Date" title="https://noah.dev/ontologies/otir/Date">Date</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup>, <a href="#https://schema.org/Hotel" title="https://schema.org/Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#https://schema.org/Restaurant" title="https://schema.org/Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>, <a href="#https://schema.org/TouristAttraction" title="https://schema.org/TouristAttraction">Tourist Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/GastronomicEvent">
+  <h3>Gastronomic Event<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/GastronomicEvent</p>
+  <div class="comment">
+   <span class="markdown">Events related to gastronomy or food tasting.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/Event" title="https://schema.org/Event">Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://schema.org/Hotel">
+  <h3>Hotel<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.org/Hotel</p>
+  <div class="comment">
+   <span class="markdown">Establishments offering accommodation to travelers and tourists.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/Place" title="https://schema.org/Place">Place</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#/BeachHotel" title="https://noah.dev/ontologies/otir/BeachHotel">Beach Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#/BusinessHotel" title="https://noah.dev/ontologies/otir/BusinessHotel">Business Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#/LuxuryHotel" title="https://noah.dev/ontologies/otir/LuxuryHotel">Luxury Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#/RuralHotel" title="https://noah.dev/ontologies/otir/RuralHotel">Rural Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#/TouristicHotel" title="https://noah.dev/ontologies/otir/TouristicHotel">Touristic Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#/BestHotel" title="https://noah.dev/ontologies/otir/BestHotel">Best Hotel</a> <sup class="type-op" title="object property">op</sup>, <a href="#/NightPrice" title="https://noah.dev/ontologies/otir/NightPrice">Night Price</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#/Rating" title="https://noah.dev/ontologies/otir/Rating">Rating</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#/StarRating" title="https://noah.dev/ontologies/otir/StarRating">Star Rating</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#/HasBestHotel" title="https://noah.dev/ontologies/otir/HasBestHotel">Has Best Hotel</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup>, <a href="#https://schema.org/Event" title="https://schema.org/Event">Event</a> <sup class="type-c" title="class">c</sup>, <a href="#https://schema.org/Restaurant" title="https://schema.org/Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>, <a href="#https://schema.org/TouristAttraction" title="https://schema.org/TouristAttraction">Tourist Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/ItalianCuisine">
+  <h3>Italian Cuisine<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/ItalianCuisine</p>
+  <div class="comment">
+   <span class="markdown">Restaurants specialized in Italian cuisine.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/Restaurant" title="https://schema.org/Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/JapaneseCuisine">
+  <h3>Japanese Cuisine<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/JapaneseCuisine</p>
+  <div class="comment">
+   <span class="markdown">Restaurants specialized in Japanese cuisine.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/Restaurant" title="https://schema.org/Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#/RestaurantDeliciaMalaga" title="https://noah.dev/ontologies/otir/RestaurantDeliciaMalaga">Restaurant Delicia Malaga</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#/RestaurantGourmetMadrid" title="https://noah.dev/ontologies/otir/RestaurantGourmetMadrid">Restaurant Gourmet Madrid</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/LuxuryHotel">
+  <h3>Luxury Hotel<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/LuxuryHotel</p>
+  <div class="comment">
+   <span class="markdown">High-end hotel offering luxury services.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/Hotel" title="https://schema.org/Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#/HotelRoyalPamplona" title="https://noah.dev/ontologies/otir/HotelRoyalPamplona">Hotel Royal Pamplona</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/MediterraneanCuisine">
+  <h3>Mediterranean Cuisine<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/MediterraneanCuisine</p>
+  <div class="comment">
+   <span class="markdown">Restaurants specialized in Mediterranean cuisine.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/Restaurant" title="https://schema.org/Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/MexicanCuisine">
+  <h3>Mexican Cuisine<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/MexicanCuisine</p>
+  <div class="comment">
+   <span class="markdown">Restaurants specialized in Mexican cuisine.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/Restaurant" title="https://schema.org/Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#/RestaurantDeliciaPamplona" title="https://noah.dev/ontologies/otir/RestaurantDeliciaPamplona">Restaurant Delicia Pamplona</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#/RestaurantTradicioToledo" title="https://noah.dev/ontologies/otir/RestaurantTradicioToledo">Restaurant Tradicio Toledo</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/Monument">
+  <h3>Monument<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/Monument</p>
+  <div class="comment">
+   <span class="markdown">Historical or symbolic structure of cultural interest.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/TouristAttraction" title="https://schema.org/TouristAttraction">Tourist Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#/CastellSevilla" title="https://noah.dev/ontologies/otir/CastellSevilla">Castell Sevilla</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/Museum">
+  <h3>Museum<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/Museum</p>
+  <div class="comment">
+   <span class="markdown">Tourist attraction focused on cultural or artistic exhibitions.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/TouristAttraction" title="https://schema.org/TouristAttraction">Tourist Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#/CastellSaragossa" title="https://noah.dev/ontologies/otir/CastellSaragossa">Castell Saragossa</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#/CatedralSevilla" title="https://noah.dev/ontologies/otir/CatedralSevilla">Catedral Sevilla</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#/MuseuMadrid" title="https://noah.dev/ontologies/otir/MuseuMadrid">Museu Madrid</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/MusicEvent">
+  <h3>Music Event<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/MusicEvent</p>
+  <div class="comment">
+   <span class="markdown">Events centered around musical performances or concerts.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/Event" title="https://schema.org/Event">Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#/CarnavalSevilla" title="https://noah.dev/ontologies/otir/CarnavalSevilla">Carnaval Sevilla</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/Park">
+  <h3>Park<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/Park</p>
+  <div class="comment">
+   <span class="markdown">Green spaces intended for leisure and relaxation of visitors.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/TouristAttraction" title="https://schema.org/TouristAttraction">Tourist Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://schema.org/Place">
+  <h3>Place<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.org/Place</p>
+  <div class="comment">
+   <span class="markdown">A general class representing any physical location, such as a hotel, restaurant, attraction, or event venue, which is associated with a specific city.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd></dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/Event" title="https://schema.org/Event">Event</a> <sup class="type-c" title="class">c</sup>, <a href="#https://schema.org/Hotel" title="https://schema.org/Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#https://schema.org/Restaurant" title="https://schema.org/Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>, <a href="#https://schema.org/TouristAttraction" title="https://schema.org/TouristAttraction">Tourist Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#/LocatedInCity" title="https://noah.dev/ontologies/otir/LocatedInCity">Located In City</a> <sup class="type-op" title="object property">op</sup>, <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#/SameCity" title="https://noah.dev/ontologies/otir/SameCity">Same City</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup>, <a href="#/SameCity" title="https://noah.dev/ontologies/otir/SameCity">Same City</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://schema.org/Restaurant">
+  <h3>Restaurant<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.org/Restaurant</p>
+  <div class="comment">
+   <span class="markdown">Establishments offering food and beverage services.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/Place" title="https://schema.org/Place">Place</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#/AndalusianCuisine" title="https://noah.dev/ontologies/otir/AndalusianCuisine">Andalusian Cuisine</a> <sup class="type-c" title="class">c</sup>, <a href="#/ItalianCuisine" title="https://noah.dev/ontologies/otir/ItalianCuisine">Italian Cuisine</a> <sup class="type-c" title="class">c</sup>, <a href="#/JapaneseCuisine" title="https://noah.dev/ontologies/otir/JapaneseCuisine">Japanese Cuisine</a> <sup class="type-c" title="class">c</sup>, <a href="#/MediterraneanCuisine" title="https://noah.dev/ontologies/otir/MediterraneanCuisine">Mediterranean Cuisine</a> <sup class="type-c" title="class">c</sup>, <a href="#/MexicanCuisine" title="https://noah.dev/ontologies/otir/MexicanCuisine">Mexican Cuisine</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#/AveragePrice" title="https://noah.dev/ontologies/otir/AveragePrice">Average Price</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#/Rating" title="https://noah.dev/ontologies/otir/Rating">Rating</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup>, <a href="#https://schema.org/Event" title="https://schema.org/Event">Event</a> <sup class="type-c" title="class">c</sup>, <a href="#https://schema.org/Hotel" title="https://schema.org/Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#https://schema.org/TouristAttraction" title="https://schema.org/TouristAttraction">Tourist Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/RuralHotel">
+  <h3>Rural Hotel<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/RuralHotel</p>
+  <div class="comment">
+   <span class="markdown">Hotel located in natural or rural environments.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/Hotel" title="https://schema.org/Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/SportEvent">
+  <h3>Sport Event<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/SportEvent</p>
+  <div class="comment">
+   <span class="markdown">Events related to sports activities.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/Event" title="https://schema.org/Event">Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#/CarnavalCadis" title="https://noah.dev/ontologies/otir/CarnavalCadis">Carnaval Cadis</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#/CongresCadis" title="https://noah.dev/ontologies/otir/CongresCadis">Congres Cadis</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#/FiraToledo" title="https://noah.dev/ontologies/otir/FiraToledo">Fira Toledo</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/TechnologicalEvent">
+  <h3>Technological Event<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/TechnologicalEvent</p>
+  <div class="comment">
+   <span class="markdown">Events related to technology, innovation, or science.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/Event" title="https://schema.org/Event">Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://schema.org/TouristAttraction">
+  <h3>Tourist Attraction<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.org/TouristAttraction</p>
+  <div class="comment">
+   <span class="markdown">Tourist places of interest that can be visited by users.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/Place" title="https://schema.org/Place">Place</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#/Beach" title="https://noah.dev/ontologies/otir/Beach">Beach</a> <sup class="type-c" title="class">c</sup>, <a href="#/Cultural" title="https://noah.dev/ontologies/otir/Cultural">Cultural</a> <sup class="type-c" title="class">c</sup>, <a href="#/Monument" title="https://noah.dev/ontologies/otir/Monument">Monument</a> <sup class="type-c" title="class">c</sup>, <a href="#/Museum" title="https://noah.dev/ontologies/otir/Museum">Museum</a> <sup class="type-c" title="class">c</sup>, <a href="#/Park" title="https://noah.dev/ontologies/otir/Park">Park</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#/BestTouristAttraction" title="https://noah.dev/ontologies/otir/BestTouristAttraction">Best Tourist Attraction</a> <sup class="type-op" title="object property">op</sup>, <a href="#/Rating" title="https://noah.dev/ontologies/otir/Rating">Rating</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#/HasBestTouristAttraction" title="https://noah.dev/ontologies/otir/HasBestTouristAttraction">Has Best Tourist Attraction</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup>, <a href="#https://schema.org/Event" title="https://schema.org/Event">Event</a> <sup class="type-c" title="class">c</sup>, <a href="#https://schema.org/Hotel" title="https://schema.org/Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#https://schema.org/Restaurant" title="https://schema.org/Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/TouristicHotel">
+  <h3>Touristic Hotel<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/TouristicHotel</p>
+  <div class="comment">
+   <span class="markdown">Hotel mainly aimed at leisure travelers.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/Hotel" title="https://schema.org/Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#/HotelDelMarSevilla" title="https://noah.dev/ontologies/otir/HotelDelMarSevilla">Hotel Del Mar Sevilla</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#/HotelRoyalBilbao" title="https://noah.dev/ontologies/otir/HotelRoyalBilbao">Hotel Royal Bilbao</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#/HotelRoyalMalaga" title="https://noah.dev/ontologies/otir/HotelRoyalMalaga">Hotel Royal Málaga</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+ <h3 id="properties" class="list">Object Properties</h3>
+ <ul class="hlist">
+  <li><a href="#/BestHotel" title="https://noah.dev/ontologies/otir/BestHotel">Best Hotel</a></li>
+  <li><a href="#/BestTouristAttraction" title="https://noah.dev/ontologies/otir/BestTouristAttraction">Best Tourist Attraction</a></li>
+  <li><a href="#/HasBestHotel" title="https://noah.dev/ontologies/otir/HasBestHotel">Has Best Hotel</a></li>
+  <li><a href="#/HasBestTouristAttraction" title="https://noah.dev/ontologies/otir/HasBestTouristAttraction">Has Best Tourist Attraction</a></li>
+  <li><a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a></li>
+  <li><a href="#/LocatedInCity" title="https://noah.dev/ontologies/otir/LocatedInCity">Located In City</a></li>
+  <li><a href="#/SameCity" title="https://noah.dev/ontologies/otir/SameCity">Same City</a></li>
+ </ul>
+ <div class="entity" id="/BestHotel">
+  <h3>Best Hotel<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/BestHotel</p>
+  <div class="comment">
+   <span class="markdown">Relates a hotel to the city where it has the highest rating among all hotels.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://schema.org/Hotel" title="https://schema.org/Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#/HasBestHotel" title="https://noah.dev/ontologies/otir/HasBestHotel">Has Best Hotel</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="/BestTouristAttraction">
+  <h3>Best Tourist Attraction<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/BestTouristAttraction</p>
+  <div class="comment">
+   <span class="markdown">Relates a tourist attraction to the city where it stands out with the highest rating or interest among all attractions.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://schema.org/TouristAttraction" title="https://schema.org/TouristAttraction">Tourist Attraction</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#/HasBestTouristAttraction" title="https://noah.dev/ontologies/otir/HasBestTouristAttraction">Has Best Tourist Attraction</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="/HasBestHotel">
+  <h3>Has Best Hotel<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/HasBestHotel</p>
+  <div class="comment">
+   <span class="markdown">Relates a city to the hotel with the highest rating within it.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://schema.org/Hotel" title="https://schema.org/Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#/BestHotel" title="https://noah.dev/ontologies/otir/BestHotel">Best Hotel</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="/HasBestTouristAttraction">
+  <h3>Has Best Tourist Attraction<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/HasBestTouristAttraction</p>
+  <div class="comment">
+   <span class="markdown">Relates a city to its best-rated or most significant tourist attraction.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://schema.org/TouristAttraction" title="https://schema.org/TouristAttraction">Tourist Attraction</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#/BestTouristAttraction" title="https://noah.dev/ontologies/otir/BestTouristAttraction">Best Tourist Attraction</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="/HasLocation">
+  <h3>Has Location<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/HasLocation</p>
+  <div class="comment">
+   <span class="markdown">Relates a city to the entities (TouristAttraction, Hotel, Restaurant, Event) located within it.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://schema.org/Place" title="https://schema.org/Place">Place</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#/LocatedInCity" title="https://noah.dev/ontologies/otir/LocatedInCity">Located In City</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="/LocatedInCity">
+  <h3>Located In City<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/LocatedInCity</p>
+  <div class="comment">
+   <span class="markdown">Relates any entity (TouristAttraction, Hotel, Restaurant, Event) to the city in which it is located.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://schema.org/Place" title="https://schema.org/Place">Place</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="/SameCity">
+  <h3>Same City<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/SameCity</p>
+  <div class="comment">
+   <span class="markdown">Relates two places that are located in the same city.</span>
+  </div>
+  <div class="description">
+   <p><strong>has characteristics: </strong> symmetric</p>
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://schema.org/Place" title="https://schema.org/Place">Place</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://schema.org/Place" title="https://schema.org/Place">Place</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
+ <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+ <ul class="hlist">
+  <li><a href="#/AveragePrice" title="https://noah.dev/ontologies/otir/AveragePrice">Average Price</a></li>
+  <li><a href="#/Date" title="https://noah.dev/ontologies/otir/Date">Date</a></li>
+  <li><a href="#/Location" title="https://noah.dev/ontologies/otir/Location">Location</a></li>
+  <li><a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a></li>
+  <li><a href="#/NightPrice" title="https://noah.dev/ontologies/otir/NightPrice">Night Price</a></li>
+  <li><a href="#/Rating" title="https://noah.dev/ontologies/otir/Rating">Rating</a></li>
+  <li><a href="#/StarRating" title="https://noah.dev/ontologies/otir/StarRating">Star Rating</a></li>
+ </ul>
+ <div class="entity" id="/AveragePrice">
+  <h3>Average Price<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/AveragePrice</p>
+  <div class="comment">
+   <span class="markdown">Represents the average price of a meal at a restaurant.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://schema.org/Restaurant" title="https://schema.org/Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="/Date">
+  <h3>Date<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/Date</p>
+  <div class="comment">
+   <span class="markdown">Specifies the date and time when an event occurs.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://schema.org/Event" title="https://schema.org/Event">Event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#date" target="_blank" title="http://www.w3.org/2001/XMLSchema#date">date</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="/Location">
+  <h3>Location<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/Location</p>
+  <div class="comment">
+   <span class="markdown">Represents the location of a city.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="/Name">
+  <h3>Name<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/Name</p>
+  <div class="comment">
+   <span class="markdown">Represents the name of a tourist attraction, city, event, hotel, or restaurant.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#https://schema.org/Place" title="https://schema.org/Place">Place</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="/NightPrice">
+  <h3>Night Price<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/NightPrice</p>
+  <div class="comment">
+   <span class="markdown">Specifies the price per night for a hotel room.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://schema.org/Hotel" title="https://schema.org/Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="/Rating">
+  <h3>Rating<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/Rating</p>
+  <div class="comment">
+   <span class="markdown">Represents the rating of a tourist attraction, hotel, or restaurant.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://schema.org/Hotel" title="https://schema.org/Hotel">Hotel</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#https://schema.org/Restaurant" title="https://schema.org/Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#https://schema.org/TouristAttraction" title="https://schema.org/TouristAttraction">Tourist Attraction</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="/StarRating">
+  <h3>Star Rating<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/StarRating</p>
+  <div class="comment">
+   <span class="markdown">Specifies the star rating of a hotel.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://schema.org/Hotel" title="https://schema.org/Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="annotationproperties">
+ <h3 id="annotationproperties" class="list">Annotation Properties</h3>
+ <ul class="hlist">
+  <li><a href="#http://purl.org/dc/elements/1.1/creator" title="http://purl.org/dc/elements/1.1/creator"> <span>creator</span> </a></li>
+  <li><a href="#http://purl.org/dc/elements/1.1/description" title="http://purl.org/dc/elements/1.1/description"> <span>description</span> </a></li>
+  <li><a href="#https://purl.org/dc/elements/1.1/description" title="https://purl.org/dc/elements/1.1/description"> <span>description</span> </a></li>
+  <li><a href="#http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled" title="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"> <span>is Rule Enabled</span> </a></li>
+  <li><a href="#http://purl.org/dc/elements/1.1/license" title="http://purl.org/dc/elements/1.1/license"> <span>license</span> </a></li>
+  <li><a href="#https://purl.org/dc/elements/1.1/license" title="https://purl.org/dc/elements/1.1/license"> <span>license</span> </a></li>
+  <li><a href="#http://purl.org/dc/elements/1.1/rights" title="http://purl.org/dc/elements/1.1/rights"> <span>rights</span> </a></li>
+  <li><a href="#https://purl.org/dc/elements/1.1/rights" title="https://purl.org/dc/elements/1.1/rights"> <span>rights</span> </a></li>
+  <li><a href="#http://www.w3.org/2002/07/owl#symmetricProperty" title="http://www.w3.org/2002/07/owl#symmetricProperty"> <span>symmetric Property</span> </a></li>
+  <li><a href="#http://purl.org/dc/elements/1.1/title" title="http://purl.org/dc/elements/1.1/title"> <span>title</span> </a></li>
+  <li><a href="#https://purl.org/dc/elements/1.1/title" title="https://purl.org/dc/elements/1.1/title"> <span>title</span> </a></li>
+ </ul>
+ <div class="entity" id="http://purl.org/dc/elements/1.1/creator">
+  <h3>creator<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/elements/1.1/creator</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/elements/1.1/description">
+  <h3>description<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/elements/1.1/description</p>
+ </div>
+ <div class="entity" id="https://purl.org/dc/elements/1.1/description">
+  <h3>description<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/dc/elements/1.1/description</p>
+ </div>
+ <div class="entity" id="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled">
+  <h3>is Rule Enabled<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/elements/1.1/license">
+  <h3>license<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/elements/1.1/license</p>
+ </div>
+ <div class="entity" id="https://purl.org/dc/elements/1.1/license">
+  <h3>license<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/dc/elements/1.1/license</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/elements/1.1/rights">
+  <h3>rights<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/elements/1.1/rights</p>
+ </div>
+ <div class="entity" id="https://purl.org/dc/elements/1.1/rights">
+  <h3>rights<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/dc/elements/1.1/rights</p>
+ </div>
+ <div class="entity" id="http://www.w3.org/2002/07/owl#symmetricProperty">
+  <h3>symmetric Property<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/2002/07/owl#symmetricProperty</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/elements/1.1/title">
+  <h3>title<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/elements/1.1/title</p>
+ </div>
+ <div class="entity" id="https://purl.org/dc/elements/1.1/title">
+  <h3>title<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://purl.org/dc/elements/1.1/title</p>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="namedindividuals">
+ <h3 id="namedindividuals" class="list">Named Individuals</h3>
+ <ul class="hlist">
+  <li><a href="#/Barcelona" title="https://noah.dev/ontologies/otir/Barcelona">Barcelona</a></li>
+  <li><a href="#/Bilbao" title="https://noah.dev/ontologies/otir/Bilbao">Bilbao</a></li>
+  <li><a href="#/Cadis" title="https://noah.dev/ontologies/otir/Cadis">Cadis</a></li>
+  <li><a href="#/CarnavalCadis" title="https://noah.dev/ontologies/otir/CarnavalCadis">Carnaval Cadis</a></li>
+  <li><a href="#/CarnavalSevilla" title="https://noah.dev/ontologies/otir/CarnavalSevilla">Carnaval Sevilla</a></li>
+  <li><a href="#/CastellCadis" title="https://noah.dev/ontologies/otir/CastellCadis">Castell Cadis</a></li>
+  <li><a href="#/CastellSaragossa" title="https://noah.dev/ontologies/otir/CastellSaragossa">Castell Saragossa</a></li>
+  <li><a href="#/CastellSevilla" title="https://noah.dev/ontologies/otir/CastellSevilla">Castell Sevilla</a></li>
+  <li><a href="#/CatedralSevilla" title="https://noah.dev/ontologies/otir/CatedralSevilla">Catedral Sevilla</a></li>
+  <li><a href="#/CongresBilbao" title="https://noah.dev/ontologies/otir/CongresBilbao">Congres Bilbao</a></li>
+  <li><a href="#/CongresCadis" title="https://noah.dev/ontologies/otir/CongresCadis">Congres Cadis</a></li>
+  <li><a href="#/FiraToledo" title="https://noah.dev/ontologies/otir/FiraToledo">Fira Toledo</a></li>
+  <li><a href="#/HotelDelMarSevilla" title="https://noah.dev/ontologies/otir/HotelDelMarSevilla">Hotel Del Mar Sevilla</a></li>
+  <li><a href="#/HotelRoyalBilbao" title="https://noah.dev/ontologies/otir/HotelRoyalBilbao">Hotel Royal Bilbao</a></li>
+  <li><a href="#/HotelRoyalMalaga" title="https://noah.dev/ontologies/otir/HotelRoyalMalaga">Hotel Royal Málaga</a></li>
+  <li><a href="#/HotelRoyalPamplona" title="https://noah.dev/ontologies/otir/HotelRoyalPamplona">Hotel Royal Pamplona</a></li>
+  <li><a href="#/HotelVistaSevilla" title="https://noah.dev/ontologies/otir/HotelVistaSevilla">Hotel Vista Sevilla</a></li>
+  <li><a href="#/Madrid" title="https://noah.dev/ontologies/otir/Madrid">Madrid</a></li>
+  <li><a href="#/MuseuMadrid" title="https://noah.dev/ontologies/otir/MuseuMadrid">Museu Madrid</a></li>
+  <li><a href="#/Málaga" title="https://noah.dev/ontologies/otir/Málaga">Málaga</a></li>
+  <li><a href="#/Pamplona" title="https://noah.dev/ontologies/otir/Pamplona">Pamplona</a></li>
+  <li><a href="#/RestaurantDeliciaMalaga" title="https://noah.dev/ontologies/otir/RestaurantDeliciaMalaga">Restaurant Delicia Malaga</a></li>
+  <li><a href="#/RestaurantDeliciaPamplona" title="https://noah.dev/ontologies/otir/RestaurantDeliciaPamplona">Restaurant Delicia Pamplona</a></li>
+  <li><a href="#/RestaurantFusioValencia" title="https://noah.dev/ontologies/otir/RestaurantFusioValencia">Restaurant Fusio Valencia</a></li>
+  <li><a href="#/RestaurantGourmetMadrid" title="https://noah.dev/ontologies/otir/RestaurantGourmetMadrid">Restaurant Gourmet Madrid</a></li>
+  <li><a href="#/RestaurantTradicioToledo" title="https://noah.dev/ontologies/otir/RestaurantTradicioToledo">Restaurant Tradicio Toledo</a></li>
+  <li><a href="#/SanSebastian" title="https://noah.dev/ontologies/otir/SanSebastian">San Sebastian</a></li>
+  <li><a href="#/Saragossa" title="https://noah.dev/ontologies/otir/Saragossa">Saragossa</a></li>
+  <li><a href="#/Sevilla" title="https://noah.dev/ontologies/otir/Sevilla">Sevilla</a></li>
+  <li><a href="#/Toledo" title="https://noah.dev/ontologies/otir/Toledo">Toledo</a></li>
+  <li><a href="#/Valencia" title="https://noah.dev/ontologies/otir/Valencia">Valencia</a></li>
+ </ul>
+ <div class="entity" id="/Barcelona">
+  <h3>Barcelona<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/Barcelona</p>
+  <div class="comment">
+   <span class="markdown">City of Barcelona, known for its architecture, culture, and Mediterranean coast.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/Location" title="https://noah.dev/ontologies/otir/Location">Location</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"41.3874,2.1686"</span>
+   </dd>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Barcelona"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/Bilbao">
+  <h3>Bilbao<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/Bilbao</p>
+  <div class="comment">
+   <span class="markdown">City of Bilbao, famous for the Guggenheim Museum and Basque culture.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup> <a href="#/CongresBilbao" title="https://noah.dev/ontologies/otir/CongresBilbao">Congres Bilbao</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup> <a href="#/HotelRoyalBilbao" title="https://noah.dev/ontologies/otir/HotelRoyalBilbao">Hotel Royal Bilbao</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#/Location" title="https://noah.dev/ontologies/otir/Location">Location</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"43.2630,-2.9350"</span>
+   </dd>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Bilbao"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/Cadis">
+  <h3>Cadis<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/Cadis</p>
+  <div class="comment">
+   <span class="markdown">City of Cadis, a historic port city in southwestern Spain.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup> <a href="#/CarnavalCadis" title="https://noah.dev/ontologies/otir/CarnavalCadis">Carnaval Cadis</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup> <a href="#/CastellCadis" title="https://noah.dev/ontologies/otir/CastellCadis">Castell Cadis</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup> <a href="#/CongresCadis" title="https://noah.dev/ontologies/otir/CongresCadis">Congres Cadis</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#/Location" title="https://noah.dev/ontologies/otir/Location">Location</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"36.5297,-6.2920"</span>
+   </dd>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Cadis"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/CarnavalCadis">
+  <h3>Carnaval Cadis<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/CarnavalCadis</p>
+  <div class="comment">
+   <span class="markdown">Event in Cadis, a traditional and colorful carnival celebration.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#/SportEvent" title="https://noah.dev/ontologies/otir/SportEvent">Sport Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/Date" title="https://noah.dev/ontologies/otir/Date">Date</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"2024-04-19"^^<a href="http://www.w3.org/2001/XMLSchema#date" target="_blank" title="http://www.w3.org/2001/XMLSchema#date">date</a> </span>
+   </dd>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Carnaval Cadis"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/CarnavalSevilla">
+  <h3>Carnaval Sevilla<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/CarnavalSevilla</p>
+  <div class="comment">
+   <span class="markdown">Event in Sevilla, a vibrant carnival featuring music and parades.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#/MusicEvent" title="https://noah.dev/ontologies/otir/MusicEvent">Music Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/Date" title="https://noah.dev/ontologies/otir/Date">Date</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"2024-05-08"^^<a href="http://www.w3.org/2001/XMLSchema#date" target="_blank" title="http://www.w3.org/2001/XMLSchema#date">date</a> </span>
+   </dd>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Carnaval Sevilla"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/CastellCadis">
+  <h3>Castell Cadis<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/CastellCadis</p>
+  <div class="comment">
+   <span class="markdown">Tourist attraction in Cadis, a historical castle near the coast.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#/Beach" title="https://noah.dev/ontologies/otir/Beach">Beach</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Castell Cadis"</span>
+   </dd>
+   <dd>
+    <a href="#/Rating" title="https://noah.dev/ontologies/otir/Rating">Rating</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"3.5"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/CastellSaragossa">
+  <h3>Castell Saragossa<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/CastellSaragossa</p>
+  <div class="comment">
+   <span class="markdown">Tourist attraction in Saragossa, a historical castle open to visitors.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#/Museum" title="https://noah.dev/ontologies/otir/Museum">Museum</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Castell Saragossa"</span>
+   </dd>
+   <dd>
+    <a href="#/Rating" title="https://noah.dev/ontologies/otir/Rating">Rating</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"5.0"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/CastellSevilla">
+  <h3>Castell Sevilla<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/CastellSevilla</p>
+  <div class="comment">
+   <span class="markdown">Tourist attraction in Sevilla, a well-preserved historical castle.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#/Monument" title="https://noah.dev/ontologies/otir/Monument">Monument</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Castell Sevilla"</span>
+   </dd>
+   <dd>
+    <a href="#/Rating" title="https://noah.dev/ontologies/otir/Rating">Rating</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"4.6"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/CatedralSevilla">
+  <h3>Catedral Sevilla<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/CatedralSevilla</p>
+  <div class="comment">
+   <span class="markdown">Tourist attraction in Sevilla, a cultural and historical palace.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#/Museum" title="https://noah.dev/ontologies/otir/Museum">Museum</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Catedral Sevilla"</span>
+   </dd>
+   <dd>
+    <a href="#/Rating" title="https://noah.dev/ontologies/otir/Rating">Rating</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"4.9"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/CongresBilbao">
+  <h3>Congres Bilbao<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/CongresBilbao</p>
+  <div class="comment">
+   <span class="markdown">Event in Bilbao, a conference with a cultural theme.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#/CulturalEvent" title="https://noah.dev/ontologies/otir/CulturalEvent">Cultural Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/Date" title="https://noah.dev/ontologies/otir/Date">Date</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"2024-12-01"^^<a href="http://www.w3.org/2001/XMLSchema#date" target="_blank" title="http://www.w3.org/2001/XMLSchema#date">date</a> </span>
+   </dd>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Congrés Bilbao"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/CongresCadis">
+  <h3>Congres Cadis<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/CongresCadis</p>
+  <div class="comment">
+   <span class="markdown">Event in Cadis, a congress related to sports activities.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#/SportEvent" title="https://noah.dev/ontologies/otir/SportEvent">Sport Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/Date" title="https://noah.dev/ontologies/otir/Date">Date</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"2024-06-02"^^<a href="http://www.w3.org/2001/XMLSchema#date" target="_blank" title="http://www.w3.org/2001/XMLSchema#date">date</a> </span>
+   </dd>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Congrés Cadis"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/FiraToledo">
+  <h3>Fira Toledo<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/FiraToledo</p>
+  <div class="comment">
+   <span class="markdown">Event in Toledo, a fair related to local traditions and sports.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#/SportEvent" title="https://noah.dev/ontologies/otir/SportEvent">Sport Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/Date" title="https://noah.dev/ontologies/otir/Date">Date</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"2024-08-26"^^<a href="http://www.w3.org/2001/XMLSchema#date" target="_blank" title="http://www.w3.org/2001/XMLSchema#date">date</a> </span>
+   </dd>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Fira Toledo"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/HotelDelMarSevilla">
+  <h3>Hotel Del Mar Sevilla<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/HotelDelMarSevilla</p>
+  <div class="comment">
+   <span class="markdown">A luxury hotel located in the heart of Saragossa, offering premium accommodation and services for a high-end experience.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#/TouristicHotel" title="https://noah.dev/ontologies/otir/TouristicHotel">Touristic Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Hotel Del Mar Sevilla"</span>
+   </dd>
+   <dd>
+    <a href="#/NightPrice" title="https://noah.dev/ontologies/otir/NightPrice">Night Price</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"95"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+   <dd>
+    <a href="#/Rating" title="https://noah.dev/ontologies/otir/Rating">Rating</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"4.4"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+   <dd>
+    <a href="#/StarRating" title="https://noah.dev/ontologies/otir/StarRating">Star Rating</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"5"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/HotelRoyalBilbao">
+  <h3>Hotel Royal Bilbao<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/HotelRoyalBilbao</p>
+  <div class="comment">
+   <span class="markdown">Hotel in Bilbao, ideal for tourists and business travelers.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#/TouristicHotel" title="https://noah.dev/ontologies/otir/TouristicHotel">Touristic Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Hotel Royal Bilbao"</span>
+   </dd>
+   <dd>
+    <a href="#/NightPrice" title="https://noah.dev/ontologies/otir/NightPrice">Night Price</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"232"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+   <dd>
+    <a href="#/Rating" title="https://noah.dev/ontologies/otir/Rating">Rating</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"3.6"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+   <dd>
+    <a href="#/StarRating" title="https://noah.dev/ontologies/otir/StarRating">Star Rating</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"3"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/HotelRoyalMalaga">
+  <h3>Hotel Royal Málaga<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/HotelRoyalMalaga</p>
+  <div class="comment">
+   <span class="markdown">Hotel in Málaga, a five-star accommodation near the coast.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#/TouristicHotel" title="https://noah.dev/ontologies/otir/TouristicHotel">Touristic Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Hotel Royal Málaga"</span>
+   </dd>
+   <dd>
+    <a href="#/NightPrice" title="https://noah.dev/ontologies/otir/NightPrice">Night Price</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"175"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+   <dd>
+    <a href="#/Rating" title="https://noah.dev/ontologies/otir/Rating">Rating</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"4.6"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+   <dd>
+    <a href="#/StarRating" title="https://noah.dev/ontologies/otir/StarRating">Star Rating</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"5"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/HotelRoyalPamplona">
+  <h3>Hotel Royal Pamplona<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/HotelRoyalPamplona</p>
+  <div class="comment">
+   <span class="markdown">Hotel in Pamplona, a comfortable option for visitors to the city.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#/LuxuryHotel" title="https://noah.dev/ontologies/otir/LuxuryHotel">Luxury Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Hotel Royal Pamplona"</span>
+   </dd>
+   <dd>
+    <a href="#/NightPrice" title="https://noah.dev/ontologies/otir/NightPrice">Night Price</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"56"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+   <dd>
+    <a href="#/Rating" title="https://noah.dev/ontologies/otir/Rating">Rating</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"3.9"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+   <dd>
+    <a href="#/StarRating" title="https://noah.dev/ontologies/otir/StarRating">Star Rating</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"3"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/HotelVistaSevilla">
+  <h3>Hotel Vista Sevilla<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/HotelVistaSevilla</p>
+  <div class="comment">
+   <span class="markdown">Hotel in Sevilla, a four-star hotel located close to the beach.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#/BeachHotel" title="https://noah.dev/ontologies/otir/BeachHotel">Beach Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Hotel Vista Sevilla"</span>
+   </dd>
+   <dd>
+    <a href="#/NightPrice" title="https://noah.dev/ontologies/otir/NightPrice">Night Price</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"278"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+   <dd>
+    <a href="#/Rating" title="https://noah.dev/ontologies/otir/Rating">Rating</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"4.7"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+   <dd>
+    <a href="#/StarRating" title="https://noah.dev/ontologies/otir/StarRating">Star Rating</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"4"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/Madrid">
+  <h3>Madrid<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/Madrid</p>
+  <div class="comment">
+   <span class="markdown">City of Madrid, the capital of Spain, known for its museums and lively culture.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup> <a href="#/MuseuMadrid" title="https://noah.dev/ontologies/otir/MuseuMadrid">Museu Madrid</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup> <a href="#/RestaurantGourmetMadrid" title="https://noah.dev/ontologies/otir/RestaurantGourmetMadrid">Restaurant Gourmet Madrid</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#/Location" title="https://noah.dev/ontologies/otir/Location">Location</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"40.4168,-3.7038"</span>
+   </dd>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Madrid"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/MuseuMadrid">
+  <h3>Museu Madrid<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/MuseuMadrid</p>
+  <div class="comment">
+   <span class="markdown">Tourist attraction in Madrid, a museum showcasing local and international art.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#/Museum" title="https://noah.dev/ontologies/otir/Museum">Museum</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Museu Madrid"</span>
+   </dd>
+   <dd>
+    <a href="#/Rating" title="https://noah.dev/ontologies/otir/Rating">Rating</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"3.7"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/Málaga">
+  <h3>Málaga<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/Málaga</p>
+  <div class="comment">
+   <span class="markdown">City of Málaga, a coastal city known for its beaches and historical sites.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup> <a href="#/HotelRoyalMalaga" title="https://noah.dev/ontologies/otir/HotelRoyalMalaga">Hotel Royal Málaga</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup> <a href="#/RestaurantDeliciaMalaga" title="https://noah.dev/ontologies/otir/RestaurantDeliciaMalaga">Restaurant Delicia Malaga</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#/Location" title="https://noah.dev/ontologies/otir/Location">Location</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"36.7213,-4.4210"</span>
+   </dd>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Màlaga"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/Pamplona">
+  <h3>Pamplona<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/Pamplona</p>
+  <div class="comment">
+   <span class="markdown">City of Pamplona, internationally known for the San Fermín festival.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup> <a href="#/HotelRoyalPamplona" title="https://noah.dev/ontologies/otir/HotelRoyalPamplona">Hotel Royal Pamplona</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup> <a href="#/RestaurantDeliciaPamplona" title="https://noah.dev/ontologies/otir/RestaurantDeliciaPamplona">Restaurant Delicia Pamplona</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#/Location" title="https://noah.dev/ontologies/otir/Location">Location</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"42.8169,-1.6444"</span>
+   </dd>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Pamplona"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/RestaurantDeliciaMalaga">
+  <h3>Restaurant Delicia Malaga<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/RestaurantDeliciaMalaga</p>
+  <div class="comment">
+   <span class="markdown">Restaurant in Málaga, offering high-quality Japanese cuisine.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#/JapaneseCuisine" title="https://noah.dev/ontologies/otir/JapaneseCuisine">Japanese Cuisine</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/AveragePrice" title="https://noah.dev/ontologies/otir/AveragePrice">Average Price</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"38"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Restaurant Delicia Malaga"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/RestaurantDeliciaPamplona">
+  <h3>Restaurant Delicia Pamplona<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/RestaurantDeliciaPamplona</p>
+  <div class="comment">
+   <span class="markdown">Restaurant in Pamplona, serving Mexican cuisine with excellent reviews.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#/MexicanCuisine" title="https://noah.dev/ontologies/otir/MexicanCuisine">Mexican Cuisine</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/AveragePrice" title="https://noah.dev/ontologies/otir/AveragePrice">Average Price</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"36"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Restaurant Delicia Pamplona"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/RestaurantFusioValencia">
+  <h3>Restaurant Fusio Valencia<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/RestaurantFusioValencia</p>
+  <div class="comment">
+   <span class="markdown">Restaurant in València, offering a fusion of Andalusian flavors.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#/AndalusianCuisine" title="https://noah.dev/ontologies/otir/AndalusianCuisine">Andalusian Cuisine</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/AveragePrice" title="https://noah.dev/ontologies/otir/AveragePrice">Average Price</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"13"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Restaurant Fusio Valencia"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/RestaurantGourmetMadrid">
+  <h3>Restaurant Gourmet Madrid<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/RestaurantGourmetMadrid</p>
+  <div class="comment">
+   <span class="markdown">Restaurant in Madrid, specialized in high-end Japanese cuisine.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#/JapaneseCuisine" title="https://noah.dev/ontologies/otir/JapaneseCuisine">Japanese Cuisine</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/AveragePrice" title="https://noah.dev/ontologies/otir/AveragePrice">Average Price</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"30"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Restaurant Gourmet Madrid"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/RestaurantTradicioToledo">
+  <h3>Restaurant Tradicio Toledo<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/RestaurantTradicioToledo</p>
+  <div class="comment">
+   <span class="markdown">Restaurant in Toledo, serving traditional Mexican cuisine.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#/MexicanCuisine" title="https://noah.dev/ontologies/otir/MexicanCuisine">Mexican Cuisine</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/AveragePrice" title="https://noah.dev/ontologies/otir/AveragePrice">Average Price</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"46"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Restaurant Tradicio Toledo"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/SanSebastian">
+  <h3>San Sebastian<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/SanSebastian</p>
+  <div class="comment">
+   <span class="markdown">City of Sant Sebastià, known for its beaches and culinary excellence.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/Location" title="https://noah.dev/ontologies/otir/Location">Location</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"43.3183,-1.9812"</span>
+   </dd>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Sant Sebastià"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/Saragossa">
+  <h3>Saragossa<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/Saragossa</p>
+  <div class="comment">
+   <span class="markdown">City of Saragossa, known for its historical heritage and cultural events.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup> <a href="#/CastellSaragossa" title="https://noah.dev/ontologies/otir/CastellSaragossa">Castell Saragossa</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#/Location" title="https://noah.dev/ontologies/otir/Location">Location</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"41.6488,-0.8891"</span>
+   </dd>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Saragossa"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/Sevilla">
+  <h3>Sevilla<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/Sevilla</p>
+  <div class="comment">
+   <span class="markdown">City of Sevilla, famous for its flamenco culture and historic architecture.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup> <a href="#/CarnavalSevilla" title="https://noah.dev/ontologies/otir/CarnavalSevilla">Carnaval Sevilla</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup> <a href="#/CastellSevilla" title="https://noah.dev/ontologies/otir/CastellSevilla">Castell Sevilla</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup> <a href="#/CatedralSevilla" title="https://noah.dev/ontologies/otir/CatedralSevilla">Catedral Sevilla</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup> <a href="#/HotelDelMarSevilla" title="https://noah.dev/ontologies/otir/HotelDelMarSevilla">Hotel Del Mar Sevilla</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup> <a href="#/HotelVistaSevilla" title="https://noah.dev/ontologies/otir/HotelVistaSevilla">Hotel Vista Sevilla</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#/Location" title="https://noah.dev/ontologies/otir/Location">Location</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"37.3886,-5.9823"</span>
+   </dd>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Sevilla"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/Toledo">
+  <h3>Toledo<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/Toledo</p>
+  <div class="comment">
+   <span class="markdown">City of Toledo, known for its medieval history and multicultural heritage.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup> <a href="#/FiraToledo" title="https://noah.dev/ontologies/otir/FiraToledo">Fira Toledo</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup> <a href="#/RestaurantTradicioToledo" title="https://noah.dev/ontologies/otir/RestaurantTradicioToledo">Restaurant Tradicio Toledo</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#/Location" title="https://noah.dev/ontologies/otir/Location">Location</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"39.8628,-4.0273"</span>
+   </dd>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Toledo"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/Valencia">
+  <h3>Valencia<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://noah.dev/ontologies/otir/Valencia</p>
+  <div class="comment">
+   <span class="markdown">City of Valencia, located on the east coast of Spain, known for its arts and science complex.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://schema.org/City" title="https://schema.org/City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#/HasLocation" title="https://noah.dev/ontologies/otir/HasLocation">Has Location</a> <sup class="type-op" title="object property">op</sup> <a href="#/RestaurantFusioValencia" title="https://noah.dev/ontologies/otir/RestaurantFusioValencia">Restaurant Fusio Valencia</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#/Location" title="https://noah.dev/ontologies/otir/Location">Location</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"39.4699,-0.3763"</span>
+   </dd>
+   <dd>
+    <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"València"</span>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="swrlrules">
+ <h3 id="swrlrules" class="list">SWRL rules</h3>
+ <ul class="hlist">
+  <li><a href="#d4e1467">BestHotelRule</a></li>
+  <li><a href="#d4e1855">BestTouristAttractionRule</a></li>
+  <li><a href="#d4e1661">SameCityRule</a></li>
+ </ul>
+ <div class="entity" id="d4e1467">
+  <h3>BestHotelRule<span class="backlink">back to <a href="#toc">ToC</a> or <a href="#swrlrules">SWRL ToC</a> </span></h3>
+  <p>Rule that assigns the best hotel of the city. If the hotel is the only one in the city, it doesn't count.<br><br><a href="#https://schema.org/Hotel" title="https://schema.org/Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>(?) , <a href="#/LocatedInCity" title="https://noah.dev/ontologies/otir/LocatedInCity">Located In City</a> <sup class="type-op" title="object property">op</sup>(?,?) , <a href="#/Rating" title="https://noah.dev/ontologies/otir/Rating">Rating</a> <sup class="type-dp" title="data property">dp</sup>(?,?) , <a href="#https://schema.org/Hotel" title="https://schema.org/Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>(?) , <a href="#/LocatedInCity" title="https://noah.dev/ontologies/otir/LocatedInCity">Located In City</a> <sup class="type-op" title="object property">op</sup>(?,?) , <a href="#/Rating" title="https://noah.dev/ontologies/otir/Rating">Rating</a> <sup class="type-dp" title="data property">dp</sup>(?,?) , <a href="http://www.w3.org/2003/11/swrlb#greaterThan" title="greaterThan">greaterThan</a>(?,?) -&gt; <a href="#/BestHotel" title="https://noah.dev/ontologies/otir/BestHotel">Best Hotel</a> <sup class="type-op" title="object property">op</sup>(?,?)</p>
+ </div>
+ <div class="entity" id="d4e1855">
+  <h3>BestTouristAttractionRule<span class="backlink">back to <a href="#toc">ToC</a> or <a href="#swrlrules">SWRL ToC</a> </span></h3>
+  <p>Rule that assigns the best tourist attraction of the city. If the attraction is the only one in city, it doesn't count.<br><br><a href="#https://schema.org/TouristAttraction" title="https://schema.org/TouristAttraction">Tourist Attraction</a> <sup class="type-c" title="class">c</sup>(?) , <a href="#/LocatedInCity" title="https://noah.dev/ontologies/otir/LocatedInCity">Located In City</a> <sup class="type-op" title="object property">op</sup>(?,?) , <a href="#/Rating" title="https://noah.dev/ontologies/otir/Rating">Rating</a> <sup class="type-dp" title="data property">dp</sup>(?,?) , <a href="#https://schema.org/TouristAttraction" title="https://schema.org/TouristAttraction">Tourist Attraction</a> <sup class="type-c" title="class">c</sup>(?) , <a href="#/LocatedInCity" title="https://noah.dev/ontologies/otir/LocatedInCity">Located In City</a> <sup class="type-op" title="object property">op</sup>(?,?) , <a href="#/Rating" title="https://noah.dev/ontologies/otir/Rating">Rating</a> <sup class="type-dp" title="data property">dp</sup>(?,?) , <a href="http://www.w3.org/2003/11/swrlb#greaterThan" title="greaterThan">greaterThan</a>(?,?) -&gt; <a href="#/BestTouristAttraction" title="https://noah.dev/ontologies/otir/BestTouristAttraction">Best Tourist Attraction</a> <sup class="type-op" title="object property">op</sup>(?,?)</p>
+ </div>
+ <div class="entity" id="d4e1661">
+  <h3>SameCityRule<span class="backlink">back to <a href="#toc">ToC</a> or <a href="#swrlrules">SWRL ToC</a> </span></h3>
+  <p>Rule that indicates the rest of the places in the same city as the consulted place.<br><br><a href="#https://schema.org/Place" title="https://schema.org/Place">Place</a> <sup class="type-c" title="class">c</sup>(?) , <a href="#https://schema.org/Place" title="https://schema.org/Place">Place</a> <sup class="type-c" title="class">c</sup>(?) , <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup>(?,?) , <a href="#/Name" title="https://noah.dev/ontologies/otir/Name">Name</a> <sup class="type-dp" title="data property">dp</sup>(?,?) , <a href="http://www.w3.org/2003/11/swrlb#notEqual" title="notEqual">notEqual</a>(?,?) , <a href="#/LocatedInCity" title="https://noah.dev/ontologies/otir/LocatedInCity">Located In City</a> <sup class="type-op" title="object property">op</sup>(?,?) , <a href="#/LocatedInCity" title="https://noah.dev/ontologies/otir/LocatedInCity">Located In City</a> <sup class="type-op" title="object property">op</sup>(?,?) -&gt; <a href="#/SameCity" title="https://noah.dev/ontologies/otir/SameCity">Same City</a> <sup class="type-op" title="object property">op</sup>(?,?)</p>
+ </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+<sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals <br/>
+</div>
+</div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+<div id="references">
+<h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<ul>
+  <li>The classes <code>City</code>, <code>Place</code>, <code>Hotel</code>, <code>TouristAttraction</code>, <code>Event</code>, and <code>Restaurant</code> have been defined based on concepts from the RDF vocabulary of <a href="https://schema.org">schema.org</a>.</li>
+  <li>This ontology has been developed using the <a href="https://protege.stanford.edu/">Protégé</a> ontology editor.</li>
+  <li>The documentation has been generated using <a href="https://github.com/dgarijo/Widoco">Widoco</a>.</li>
+  <li>The data used for the ontology instances has been provided by the <a href="https://www.uoc.edu/">Universitat Oberta de Catalunya (UOC)</a>.</li>
+</ul>
+</div>
+<div id="acknowledgments">
+<h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>
+The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+</div>
+
+
+</div>
+</body>
+</html>
